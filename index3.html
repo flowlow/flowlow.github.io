@@ -1,0 +1,87 @@
+<html>
+<head>
+
+	<link rel="stylesheet" type="text/css" href="mystyle.css">
+	
+
+</head>
+<body id="index3">
+
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script src="jquery.js"></script>
+
+
+
+<script src="myscript.js"></script>
+
+
+<script>  
+ var socket = io.connect('http://localhost:3000');
+</script>  
+<script>
+    $("#bt_validation").click(function() {
+        var json = {}
+        $(".json").each(function(){
+            var id = this.id
+            json[id] = this.value
+        })
+        socket.emit('json', json)
+    })
+    
+</script>
+
+
+
+<div id="fixedbarre" style="position: absolute; position: fixed; width: 100%; height: 12%; left: 0; top: 0; background-color: rgba(255,255,255,1); z-index: 9999; border-bottom: 3px solid #000080;">
+
+        <input class="json" type="text" id="estimation2" value="" disabled="disabled" style="margin-left: 270px; width: 30%; height: 60px; font-size: 30px; text-align: center; position: fixed; display: none;"/></input>
+    
+        <a href="index2.html" id="contactinfo2" name="contactinfo2"><p style="text-align: center; margin-top: 10%;">En savoir +</p></a>
+
+        <a href="index.html" id="retour_acc" name="retour_acc"><p style="text-align: center; margin-top: 10%;">Retour au simulateur</p></a>
+
+</div>
+
+
+<div id = "block">
+<img src="logo_435.png" style="position: fixed; top: 2%; left: 2%; z-index: 9999; object-position: absolute; height: 9%;" id="logo_ime">
+ </div>
+
+
+ 
+        <p style="margin-top: 5%; color: #000080; font-weight: bold; font-size: 2.5vw; text-align: center;"> Vous avez des questions ? Notre service client est là pour y répondre !</p>
+        <img src="rappel_auto.png" style="margin-top: 2%; margin-left: 8%; object-position: absolute; position: fixed">
+
+        <div id="contact_com" style="margin-top: -2%; margin-left: 54%; object-position: absolute; position: fixed; width: 530px;" >
+            
+            <h1 id="tel_h1" style="font-size: 20px; color: #000080; font-weight: bold; margin-left: 0%;">Téléphone</h1>
+            <p>Une équipe de conseillers spécialisés à votre écoute au 02.32.95.35.92 (du Lundi au Vendredi de 8h à 19h et le Samedi de 9h à 17h)</p>
+
+            <h1 id="internet_h1" style="font-size: 20px; color: #000080; font-weight: bold; margin-top: 1%; margin-left: 0%;">Internet</h1>
+            <p>Pour obtenir une information sur nos contrats, nos tarifs, nos services, recevoir un document ... <a href="https://www.matmut.fr/pro" target="_blank" style="font-weight: bold; color: #22baba">Effectuer votre demande en ligne</a></p>
+            <p style="margin-top: -3%;">Vous pouvez aussi nous écrire à l'adresse suivante : <a href="mailto:entreprises@imentreprises.fr" style="font-weight: bold; color: #22baba">entreprises@imentreprises.fr</a></p>
+
+            <h1 id="courrier_h1" style="font-size: 20px; color: #000080; font-weight: bold; margin-top: 1%; margin-left: 0%;">Courrier</h1>
+            <p>11 rue du Docteur Lancereaux</p>
+            <p style="margin-top: -3%;">75378 Paris Cedex 8</p>
+
+            <h1 id="agence_h1" style="font-size: 20px; color: #000080; font-weight: bold; margin-top: 1%; margin-left: 0%;">Trouvez l'agence la plus proche</h1>
+            <p><a href="https://www.matmut.fr/app/LocalisationAgenceInternetRSP/Localisation" target="_blank" style="font-weight: bold; color: #22baba">Rendez-vous ici !</a></p>
+
+        </div>
+
+        <div style="margin-top:32%; margin-left: 65%;">
+        <a href="https://www.facebook.com/MatmutAssurances/" target="_blank"><img src="http://www.appui86.fr/wp-content/uploads/2016/11/facebook-logo-fr.gif" width="220" height="85"></a>
+        </div>
+
+        <div style="margin-top:-6.5%; margin-left: 81%;">
+        <a href="https://twitter.com/groupematmut?lang=en" target="_blank"><img src="http://www.meconv.be/files/uploads/Home/twitter%20contact%20fr.jpg" width="230px" height="70"></a>
+        </div>
+
+        
+
+
+</body>
+</html>

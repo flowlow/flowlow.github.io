@@ -1,0 +1,1434 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="mystyle.css">
+
+    </head>
+    <body id="index">
+
+ <script src="/socket.io/socket.io.js"></script>
+
+<script src="jquery.js"></script>
+
+
+<script src="myscript.js"></script>
+
+
+<script type="text/javascript">
+
+
+                document.getElementById('qualite1').style="display: none";
+                document.getElementById('qualite2').style="display: none";
+
+                function displaymessage() {
+                if (document.form.Qualite.value == "syndic_pro") {
+                 document.getElementById("qualite1").style = "display: right";
+                 document.getElementById("qualite2").style = "display: none";  
+                 
+                } else if (document.form.Qualite.value == "syndic_ben") {
+                 document.getElementById("qualite1").style = "display: none";
+                 document.getElementById("qualite2").style = "display: right";
+   
+                } else {
+                 document.getElementById("qualite1").style = "display: none"; 
+                 document.getElementById("qualite2").style = "display: none"; 
+                 }
+                 }
+
+                
+                document.getElementById('Nb2').style="display: none";
+                document.getElementById('Nb3').style="display: none";
+                document.getElementById('Nb4').style="display: none";
+                document.getElementById("Nb5").style="display: none";
+                document.getElementById("Nb1").style="display: none";
+                document.getElementById("Nb6").style="display: none"; 
+
+                function displaymessage1() {
+                
+                if (document.form.Nbbatiment.value == "1_batiment") {
+                document.getElementById("Nb2").style = "display: none"; 
+                document.getElementById("Nb3").style = "display: none"; 
+                document.getElementById("Nb4").style = "display: none";
+                document.getElementById("Nb5").style = "display: none";  
+                document.getElementById("Nb1").style="display: none";
+                document.getElementById("Nb6").style = "display: right";
+                } else if (document.form.Nbbatiment.value == "2_batiments") {
+                document.getElementById("Nb2").style = "display: right";
+                document.getElementById("Nb3").style = "display: none"; 
+                document.getElementById("Nb4").style = "display: none";
+                document.getElementById("Nb5").style = "display: none";
+                document.getElementById("Nb1").style="display: none"; 
+                document.getElementById("Nb6").style="display: none";
+                } else if (document.form.Nbbatiment.value == "3_batiments") {
+                document.getElementById("Nb2").style = "display: none"; 
+                document.getElementById("Nb3").style = "display: right"; 
+                document.getElementById("Nb4").style = "display: none";
+                document.getElementById("Nb5").style = "display: none"; 
+                document.getElementById("Nb1").style="display: none";
+                document.getElementById("Nb6").style="display: none"; 
+                } else if (document.form.Nbbatiment.value == "4_batiments") {
+                document.getElementById("Nb2").style = "display: none"; 
+                document.getElementById("Nb3").style = "display: none"; 
+                document.getElementById("Nb4").style = "display: right"; 
+                document.getElementById("Nb5").style = "display: none";
+                document.getElementById("Nb1").style="display: none";
+                document.getElementById("Nb6").style="display: none"; 
+                } else if (document.form.Nbbatiment.value == "5_batiments") {
+                document.getElementById("Nb2").style = "display: none"; 
+                document.getElementById("Nb3").style = "display: none"; 
+                document.getElementById("Nb4").style = "display: none"; 
+                document.getElementById("Nb5").style = "display: right";
+                document.getElementById("Nb1").style="display: none";
+                document.getElementById("Nb6").style="display: none"; 
+                } else { 
+                document.getElementById("Nb2").style = "display: none"; 
+                document.getElementById("Nb3").style = "display: none";
+                document.getElementById("Nb4").style = "display: none"; 
+                document.getElementById("Nb5").style = "display: none";
+                document.getElementById("Nb1").style = "display: none";
+                document.getElementById("Nb6").style = "display: none"; 
+                 }
+                 }
+
+
+
+                function calcul(){
+
+                var a = document.getElementById('surface').value;
+                var b = document.getElementById('taux1').value ;
+                var c = document.getElementById('taux2').value ;
+                var d = document.getElementById('taux3').value ;
+                var e = document.getElementById('taux4').value ;
+                var f = document.getElementById('taux5').value ;
+
+                if (a <= 255 && a > 0) { 
+                document.getElementById('estimation').value = 350;
+                document.getElementById('estimation1').value = 350;
+                document.getElementById('estimation2').value = 350;
+                document.getElementById('estimation4').value = 350;
+
+                }
+                else if (a <= 300 && a > 255) { 
+                document.getElementById('estimation').value = Math.round(parseFloat(a) *  parseFloat(b)) + 106;
+                document.getElementById('estimation1').value = Math.round(parseFloat(a) *  parseFloat(b)) + 106;
+                document.getElementById('estimation2').value = Math.round(parseFloat(a) *  parseFloat(b)) + 106;
+                document.getElementById('estimation4').value = Math.round(parseFloat(a) *  parseFloat(b)) + 106;
+                }
+
+                else if (a <= 1000 && a > 300) {
+                document.getElementById('estimation').value =  Math.round(parseFloat(a) *  parseFloat(c)) + 106;
+                document.getElementById('estimation1').value = Math.round(parseFloat(a) *  parseFloat(c)) + 106;
+                document.getElementById('estimation2').value = Math.round(parseFloat(a) *  parseFloat(c)) + 106;
+                document.getElementById('estimation4').value = Math.round(parseFloat(a) *  parseFloat(c)) + 106;
+                }
+                else if (a <= 2000 && a > 1000) {
+                document.getElementById('estimation').value =  Math.round(parseFloat(a) *  parseFloat(d)) + 106;
+                document.getElementById('estimation1').value = Math.round(parseFloat(a) *  parseFloat(d)) + 106;
+                document.getElementById('estimation2').value = Math.round(parseFloat(a) *  parseFloat(d)) + 106;
+                document.getElementById('estimation4').value = Math.round(parseFloat(a) *  parseFloat(d)) + 106;
+                }
+                else if (a <= 3000 && a > 2000) {
+                document.getElementById('estimation').value =  Math.round(parseFloat(a) *  parseFloat(e)) + 106;
+                document.getElementById('estimation1').value = Math.round(parseFloat(a) *  parseFloat(e)) + 106;
+                document.getElementById('estimation2').value = Math.round(parseFloat(a) *  parseFloat(e)) + 106;
+                document.getElementById('estimation4').value = Math.round(parseFloat(a) *  parseFloat(e)) + 106;
+                }
+                else if (a <= 4000 && a > 3000) {
+                document.getElementById('estimation').value =  Math.round(parseFloat(a) *  parseFloat(f)) + 106;
+                document.getElementById('estimation1').value = Math.round(parseFloat(a) *  parseFloat(f)) + 106;
+                document.getElementById('estimation2').value = Math.round(parseFloat(a) *  parseFloat(f)) + 106;
+                document.getElementById('estimation4').value = Math.round(parseFloat(a) *  parseFloat(f)) + 106;
+                }
+                else {
+                    document.getElementById("erreur").style = "display: right"; 
+                    document.getElementById("estimation").style = "display: none";
+                    document.getElementById("estimatarif").style = "display: none";
+                    document.getElementById("estima_indi").style = "display: none";
+                    document.getElementById("devisperso").style = "display: none";
+                    document.getElementById("estimation2").style = "display: none";
+
+
+                }
+                document.getElementById('estimation').value += "€ TTC / an"
+                document.getElementById('estimation1').value += "€ TTC / an"
+                document.getElementById('estimation2').value += "€ TTC / an"
+                document.getElementById('estimation4').value += "€ TTC / an"
+
+                }
+                
+
+            
+
+                function displayeta2() {
+
+                if (document.form.Nbeta.value == 0) {
+                document.getElementById("eta2").style = "display: none";
+
+                } else if (document.form.Nbeta.value == "1-9_etages") {
+                document.getElementById("eta2").style = "display: none"; 
+
+                } else if (document.form.Nbeta.value == "plus_10_etages") {
+                document.getElementById("eta2").style = "display: right";
+
+                } else {
+                document.getElementById("eta2").style = "display: none"; 
+                }
+                }
+
+        
+                function displaymessage2() {
+                if (document.form.Annee_de_construction.value == 0) {
+                 document.getElementById("anneediag1").style = "display: none";
+                 document.getElementById("anneediag2").style = "display: none";  
+                 document.getElementById("anneediag3").style = "display: none";
+                 document.getElementById("pas_diag").style = "display: none";
+                 document.getElementById("pas_diag2").style = "display: none";
+
+                } else if (document.form.Annee_de_construction.value == "av_1990") {
+                 document.getElementById("anneediag1").style = "display: right";
+                 document.getElementById("anneediag2").style = "display: right";  
+                 document.getElementById("anneediag3").style = "display: right";
+                 document.getElementById("pas_diag").style = "display: none";
+                 document.getElementById("pas_diag2").style = "display: right";
+                 
+                } else if (document.form.Annee_de_construction.value == "1900-1948") {
+                 document.getElementById("anneediag1").style = "display: right";
+                 document.getElementById("anneediag2").style = "display: right";
+                 document.getElementById("anneediag3").style = "display: right"; 
+                 document.getElementById("pas_diag").style = "display: none";
+                 document.getElementById("pas_diag2").style = "display: right";
+                  
+                } else if (document.form.Annee_de_construction.value == "1949-1997") {
+                document.getElementById("anneediag1").style = "display: right"; 
+                document.getElementById("anneediag2").style = "display: none"; 
+                document.getElementById("anneediag3").style = "display: right";
+                document.getElementById("pas_diag").style = "display: none";
+                document.getElementById("pas_diag2").style = "display: right";
+
+                } else if (document.form.Annee_de_construction.value == "ap_1997") {
+                document.getElementById("anneediag1").style = "display: none"; 
+                document.getElementById("anneediag2").style = "display: none"; 
+                document.getElementById("anneediag3").style = "display: none";
+                document.getElementById("pas_diag").style = "display: right";
+                document.getElementById("pas_diag2").style = "display: none";
+                
+                } else  {
+                document.getElementById("anneediag1").style = "display: none"; 
+                document.getElementById("anneediag2").style = "display: none"; 
+                document.getElementById("anneediag3").style = "display: none"; 
+                document.getElementById("pas_diag").style = "display: none"; 
+                document.getElementById("pas_diag2").style = "display: none";
+                 
+                 }
+                 }
+
+                 function displaysoussol() {
+
+                 if (document.form.nombre_de_ss.value == 0) {
+                document.getElementById("Nombress1").style = "display: none";
+                document.getElementById("Nombress2").style = "display: none";
+                document.getElementById("Nombress4").style = "display: none";
+                document.getElementById("photo_ss").style = "display: none";
+               
+
+                } else if (document.form.nombre_de_ss.value == "pas_de_ss") {
+                document.getElementById("Nombress1").style = "display: none"; 
+                document.getElementById("Nombress2").style = "display: none";
+                document.getElementById("Nombress4").style = "display: none";
+                document.getElementById("photo_ss").style = "display: none";
+                
+               
+                } else if (document.form.nombre_de_ss.value == "1_ss") {
+                document.getElementById("Nombress1").style = "display: right";
+                document.getElementById("Nombress2").style = "display: right"; 
+                document.getElementById("Nombress4").style = "display: none";
+                document.getElementById("photo_ss").style = "display: right";
+                
+                
+                } else if (document.form.nombre_de_ss.value == "2_ss") {
+                document.getElementById("Nombress1").style = "display: right"; 
+                document.getElementById("Nombress2").style = "display: right";
+                document.getElementById("Nombress4").style = "display: none";
+                document.getElementById("photo_ss").style = "display: right";
+                
+                
+                } else if (document.form.nombre_de_ss.value == "3_ss") {
+                document.getElementById("Nombress1").style = "display: right";
+                document.getElementById("Nombress2").style = "display: right"; 
+                document.getElementById("Nombress4").style = "display: none";
+                document.getElementById("photo_ss").style = "display: right";
+                
+               
+                } else if (document.form.nombre_de_ss.value == "4_et_plus_ss") {
+                document.getElementById("Nombress1").style = "display: none"; 
+                document.getElementById("Nombress2").style = "display: none";
+                document.getElementById("Nombress4").style = "display: right";
+                document.getElementById("photo_ss").style = "display: none";
+                
+                
+                } else {
+                document.getElementById("Nombress1").style = "display: none"; 
+                document.getElementById("Nombress2").style = "display: none";
+                document.getElementById("Nombress4").style = "display: right";
+                document.getElementById("photo_ss").style = "display: none";
+                
+                }
+                }
+
+
+             </script>
+
+<br>
+<br>   
+
+<div id="fixedbarre" style="position: absolute; position: fixed; width: 100%; height: 12%; left: 0; top: 0; background-color: rgba(255,255,255,1); z-index: 9999; border-bottom: 3px solid #000080;">
+
+        <input class="json" type="text" id="estimation2" value="" disabled="disabled" style="margin-left: 270px; width: 30%; height: 60px; font-size: 30px; text-align: center; position: fixed; display: none;"/></input>
+    
+        <a href="index3.html" id="contact1" name="contact1"><p style="text-align: center;">Nous contacter</p></a>
+
+        <a href="index2.html" id="contactinfo" name="contactinfo"><p style="text-align: center; margin-top: 10%;">En savoir +</p></a>
+
+
+</div>
+
+
+</div>
+
+<div class = "menu">
+
+<div id = "block">
+<img src="logo_435.png" style="position: fixed; top: 2%; left: 2%; z-index: 9999; object-position: absolute; height: 9%;" id="logo_ime">
+</div>
+    <div class="mask">
+        <div class="submenu">
+            <ul>
+                <li><a id="matmutpro" href="https://www.matmut.fr/pro" target="_blank" style="color: #000080;"><span style="background:#FFF">Accéder au site Matmut.fr</span></a></li>
+                <li><a id="macifpro" href="https://www.macif.fr/assurance/professionnels-et-entreprises" target="_blank" style="color: #000080;">Accéder au site Macif.fr</a></li>
+                <li><a id="impro" href="https://www.imentreprises.fr/" target="_blank" style="color: #000080;">Accéder au site imentreprises.fr</a></li>
+       
+            </ul>
+        </div>  
+    </div> 
+</div>  
+
+
+
+
+<div class="chatbot chatbot--closed">
+  <div class="chatbot__header">
+    <p><strong>Vous avez une question ?</strong><span class="u-text-highlight"><br>Hugo est là pour vous !</span></p>
+    <svg class="chatbot__close-button icon-speech" viewBox="0 0 32 32">
+      <use xlink:href="#icon-speech" />
+    </svg>
+    <svg class="chatbot__close-button icon-close" viewBox="0 0 32 32">
+      <use xlink:href="#icon-close" />
+    </svg>
+  </div>
+  <div class="chatbot__message-window">
+    <ul class="chatbot__messages">
+      <li class="is-ai animation">
+        <div class="is-ai__profile-picture">
+          <svg class="icon-avatar" viewBox="0 0 32 32">
+            <use xlink:href="#avatar" />
+          </svg>
+        </div>
+        <span class="chatbot__arrow chatbot__arrow--left"></span>
+        <p class='chatbot__message'>Bonjour je suis Hugo, votre assistant virtuel :) <br><br>Vous avez une question ? Demandez, c'est mon job de vous aider ! </p>
+      </li>
+      <!-- Message here -->
+    </ul>
+  </div>
+  <div class="chatbot__entry chatbot--closed">
+    <input type="text" class="chatbot__input" placeholder="Ecrivez un message ..." />
+    <svg class="chatbot__submit" viewBox="0 0 32 32">
+      <use xlink:href="#icon-send" />
+    </svg>
+  </div>
+</div>
+
+<!-- Symbols -->
+<svg>
+  <!-- Close icon -->
+  <symbol id="icon-close" viewBox="0 0 32 32">
+    <title>Close</title>
+    <path d="M2.624 8.297l2.963-2.963 23.704 23.704-2.963 2.963-23.704-23.704z" />
+    <path d="M2.624 29.037l23.704-23.704 2.963 2.963-23.704 23.704-2.963-2.963z" />
+  </symbol>
+
+  <!-- Speech icon -->
+  <symbol id="icon-speech" viewBox="0 0 32 32">
+    <title>Speech</title>
+    <path d="M21.795 5.333h-11.413c-0.038 0-0.077 0-0.114 0l-0.134 0.011v2.796c0.143-0.006 0.273-0.009 0.385-0.009h11.277c0.070 0 7.074 0.213 7.074 7.695 0 5.179-2.956 7.695-9.036 7.695h-3.792c-0.691 0-1.12 0.526-1.38 1.159l-1.387 3.093-1.625 3.77 0.245 0.453h2.56l2.538-5.678h2.837c7.633 0 11.84-3.727 11.84-10.494 0.001-8.564-7.313-10.492-9.875-10.492z" />
+    <path d="M10.912 24.259c-0.242-0.442-0.703-0.737-1.234-0.737-0 0-0 0-0 0h-0.56c-0.599-0.011-1.171-0.108-1.71-0.28l0.042 0.012c-1.82-0.559-4.427-2.26-4.427-7.424 0-6.683 5.024-7.597 7.109-7.686v-2.8c-2.042 0.095-9.91 1.067-9.91 10.483 0 4.832 1.961 7.367 3.606 8.64 1.38 1.067 3.109 1.744 4.991 1.843l0.033 0.019 2.805 5.211 1.41-3.273z" />
+  </symbol>
+
+  <!-- Send icon -->
+  <symbol id="icon-send" viewBox="0 0 23.97 21.9">
+    <title>Send</title>
+    <path d="M0.31,9.43a0.5,0.5,0,0,0,0,.93l8.3,3.23L23.15,0Z"/>
+    <path d="M9,14.6H9V21.4a0.5,0.5,0,0,0,.93.25L13.22,16l6,3.32A0.5,0.5,0,0,0,20,19l4-18.4Z"/>
+  </symbol>
+  
+  <!-- Avatar icon -->
+  <symbol id="avatar" width="44.25" height="44" viewBox="0 0 44.25 44">
+    <title>Avatar</title>
+    <path style="fill: #7226e0; fill-rule: evenodd;" d="M1035.88,1696.25a22,22,0,1,1-22.13,22A22.065,22.065,0,0,1,1035.88,1696.25Z" transform="translate(-1013.75 -1696.25)"/>
+    <path style="fill: #fff; fill-rule: evenodd;" d="M1030.18,1725.16h2.35a0.335,0.335,0,0,0,.34-0.33v-5.23h5.94v5.23a0.342,0.342,0,0,0,.34.33h2.36a0.342,0.342,0,0,0,.34-0.33v-12.36a0.34,0.34,0,0,0-.34-0.32h-2.36a0.34,0.34,0,0,0-.34.32v4.51h-5.94v-4.51a0.333,0.333,0,0,0-.34-0.32h-2.35a0.333,0.333,0,0,0-.34.32v12.36a0.335,0.335,0,0,0,.34.33" transform="translate(-1013.75 -1696.25)"/>
+  </symbol>
+  
+</svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1 id="text_deroulant">Assurance Copropriété : un cadre de vie <span id="rotate1" class="txt-rotate fw700" data-period="2500" data-rotate='[ "préservé", "sécurisé", "apaisé", "maîtrisé", "protégé", "assuré" ]'></span></h1>
+
+        <form name="form" enctype="multipart/form-data">
+<br>
+
+<div id="erreur" style="display: none; margin-top: -3%;">
+    <p style="margin-top: 3%; color: #000080; font-weight: bold; font-size: 2.5vw; text-align: center"> Oups ... Votre copropriété fait plus de 4000 mètres carrés ! Nous devons donc procéder à une étude particulière. Contactez-nous selon le moyen qui vous convient le mieux ! </p>
+    <img src="rappel_auto.png" style="margin-left: 11%; position: absolute; position: fixed;">
+    
+    <div id="contact_com" style="margin-top: -2%; margin-left: 54%; object-position: absolute; position: fixed; width: 530px;" >
+            
+            <h1 id="tel_h1" style="font-size: 20px; color: #000080; font-weight: bold; margin-left: 0%;">Téléphone</h1>
+            <p style="color: #000080">Une équipe de conseillers spécialisés à votre écoute au 02.32.95.35.92 (du Lundi au Vendredi de 8h à 19h et le Samedi de 9h à 17h)</p>
+
+            <h1 id="internet_h1" style="font-size: 20px; color: #000080; font-weight: bold; margin-top: 1%; margin-left: 0%;">Internet</h1>
+            <p style="color: #000080">Pour obtenir une information sur nos contrats, nos tarifs, nos services, recevoir un document ... <a href="https://www.matmut.fr/pro" target="_blank" style="font-weight: bold; color: #22baba">Effectuer votre demande en ligne</a></p>
+            <p style="margin-top: -3%; color: #000080">Vous pouvez aussi nous écrire à l'adresse suivante : <a href="mailto:entreprises@imentreprises.fr" style="font-weight: bold; color: #22baba">entreprises@imentreprises.fr</a></p>
+
+            <h1 id="courrier_h1" style="font-size: 20px; color: #000080; font-weight: bold; margin-top: 1%; margin-left: 0%;">Courrier</h1>
+            <p style="color: #000080">11 rue du Docteur Lancereaux</p>
+            <p style="margin-top: -3%; color: #000080">75378 Paris Cedex 8</p>
+
+        </div>
+
+    <input type="button" style="width: 15%; height: 7%; margin-top: 25%; margin-left: 40%; border: 3px solid #000080; position: fixed; position: absolute; line-height: 0px;" id="r_accueil2" name="r-accueil2" value="Retour accueil" class="js-scrollTo" href="#page-3">
+    </div>
+<br>
+<br>
+
+<fieldset id="fieldset1">
+
+            <br>
+            <legend style="font-weight: bold;"><span class="number">€</span> Estimez votre cotisation</legend>
+            
+            <label style="margin-left: 110px; margin-bottom: 10px; color: #000080; font-weight: bold;">Surface totale de votre copropriété </label>
+
+                <input type="text" id="surface" class="json" style="width:150px; height:40px;" name="surface" />
+                
+                        <input type="text" id="taux1" style="display: none;" name="taux1" value="1.02" />
+                        <input type="text" id="taux2" style="display: none;" name="taux2" value="0.92" />
+                        <input type="text" id="taux3" style="display: none;" name="taux3" value="0.87" />
+                        <input type="text" id="taux4" style="display: none;" name="taux4" value="0.81" />
+                        <input type="text" id="taux5" style="display: none;" name="taux5" value="0.78" />
+
+<a href="#0" class="cd-popup-trigger8" style="margin-left: 0px;">?</a>
+
+<div class="cd-popup8" role="alert">
+    <div class="cd-popup-container8" style="color: #000080;">
+        <p style="text-align: left; text-align: justify;">
+            Surfaces totales des locaux, murs compris, ainsi que caves, greniers, garages en surface, dépendances, sous-sols, utilisés ou non.
+        </p>
+
+        <p style="margin-top: -80px; text-align: left; text-align: justify;">
+        <font color="#088A08">Prendre 100% des surfaces en vert</font> et <font color="#FF0000">50% des surfaces en rouge.</font> Ne vous inquiétez pas, un conseiller vérifiera cette information pour éviter les erreurs !
+        </p>
+
+        <img style="margin-top: -5%;" src="calcul_surf.png">
+        
+        <a href="#0" class="cd-popup-close8 img-replace8">Close</a>
+    </div>
+</div>
+
+
+                <input type="button" onClick="calcul();" onclick="functionTest('')" value="Calculer" name="calesti" id="calesti" style="margin-left: 130px; margin-top: -6px;"" class="js-scrollTo" href="#page-2" />
+</div>
+
+<br>
+      </fieldset>
+
+
+<div id="page-2" >
+    <br><br><br><br><br>
+      <div id="caltaux1" class="class_caltaux1" style="display: none;" >
+
+<p style="margin-left: 150px; font-size: 30px; font-weight: bold;">Garanties acquises avec votre estimation</p>
+    
+<div id="side_incendie" class="sidebar">
+    <p style="text-align: center; font-weight: bold;">Incendie et risques annexes</p>
+
+<br>
+<a href="#0" class="cd-popup-trigger" style="margin-left: 60px;">Plus d'infos ?</a>
+
+<div class="cd-popup" role="alert">
+    <div class="cd-popup-container">
+        <p style="text-align: left; text-align: justify;">Nous prenons en charge les dommages subis par votre copropriété en cas d'incendie ou d'événement assimilés. Exemples : chute de la foudre, dommage d’ordre électrique, explosion, chute d'appareils de navigation aérienne et choc de véhicule terrestre, attentats...
+        </p>
+        <p style="margin-top: -80px; text-align: left; text-align: justify;">
+        - Catastrophes Naturelles :
+        Vous êtes couvert pour les dommages matériels qui ont pour cause « l'intensité anormale d'un agent naturel ». La mise en jeu de cette garantie est conditionnée à la publication d'un arrêté interministériel.
+        </p>
+        <p style="margin-top: -80px; text-align: left; text-align: justify;">
+        - Catastrophes Technologiques :
+        Vous êtes garanti pour les dommages liés aux risques technologiques (explosion d'une usine par exemple). La mise en jeu de cette garantie est conditionnée à la publication d'un arrêté interministériel.
+        </p>
+        
+        <a href="#0" class="cd-popup-close img-replace">Close</a>
+    </div>
+</div>     
+</div> 
+
+<div id="side_dde" class="sidebar">
+<p style="text-align: center; font-weight: bold;">Dégâts des eaux</p> 
+
+<br>
+<a href="#0" class="cd-popup-trigger1" style="margin-left: 60px;">Plus d'infos ?</a>
+
+<div class="cd-popup1" role="alert">
+    <div class="cd-popup-container1" style="color: #000080;">
+        <p style="text-align: left; text-align: justify;">
+        Nous prenons en charge les dommages subis par votre copropriété en cas de fuites d'eau, infiltrations, ruptures, débordements, engorgements provenant de conduits d’alimentation ou d’évacuation non enterrés. 
+        </p>
+        <p style="margin-top: -80px; text-align: left; text-align: justify;">
+        Vous êtes également garanti pour les frais de recherche de fuites d'eau et refoulement dégoûts.
+        </p>
+        
+        <a href="#0" class="cd-popup-close1 img-replace1">Close</a>
+    </div>
+</div> 
+
+</div> 
+
+<div id="side_vol" class="sidebar">
+<p style="text-align: center; font-weight: bold;">Vol, Vandalisme</p>
+
+<br>
+<a href="#0" class="cd-popup-trigger2" style="margin-left: 60px;">Plus d'infos ?</a>
+
+<div class="cd-popup2" role="alert">
+    <div class="cd-popup-container2" style="color: #000080;">
+        <p style="text-align: left; text-align: justify;">
+            Nous prenons en charge les dommages subis par la copropriété en cas de disparition, détériorations mobilières et immobilières, destruction résultant d’un vol, tentative de vol ou acte de vandalisme sur les parties communes.
+        </p>
+        <p style="margin-top: -80px; text-align: left; text-align: justify;">
+        Exemple : tentative de vol entrainant des détériorations sur la porte d’entrée de l’immeuble.
+        </p>
+        
+        <a href="#0" class="cd-popup-close2 img-replace2">Close</a>
+    </div>
+</div> 
+
+</div>
+
+<div id="side_bdg" class="sidebar">
+<p style="text-align: center; font-weight: bold;">Bris de glace</p>
+
+
+<br>
+<a href="#0" class="cd-popup-trigger3" style="margin-left: 60px;">Plus d'infos ?</a>
+
+<div class="cd-popup3" role="alert">
+    <div class="cd-popup-container3" style="color: #000080;">
+        <p style="text-align: left; text-align: justify;">
+            Nous prenons en charge le bris des installations de miroiterie (verres, glaces, miroirs) dans les parties communes
+        </p>
+        <p style="margin-top: -80px; text-align: left; text-align: justify;">
+        Exemple : miroir dans le hall d’entrée, porte vitrée appartenant à la copropriété..
+        </p>
+        
+        <a href="#0" class="cd-popup-close3 img-replace3">Close</a>
+    </div>
+</div>
+
+</div>
+
+<div id="side_perteindirecte" class="sidebar">
+<p style="text-align: center; font-weight: bold;">Responsabilité Civile</p>
+
+<br>
+<a href="#0" class="cd-popup-trigger4" style="margin-left: 60px;">Plus d'infos ?</a>
+
+<div class="cd-popup4" role="alert">
+    <div class="cd-popup-container4" style="color: #000080;">
+        <p style="text-align: left; text-align: justify;">
+        Nous assurons les dommages matériels et corporels que vous pouvez causer à vos voisins ou à des tiers à la suite d'un incendie, d'un dégât des eaux ou d'un accident ayant pour origine le bien assuré.</p>
+        
+        <a href="#0" class="cd-popup-close4 img-replace4">Close</a>
+    </div>
+</div>
+
+</div>
+
+<div id="side_CatTech" class="sidebar">
+<p style="text-align: center; font-weight: bold;">Tempête, grêle, neige</p>
+
+<br>
+<a href="#0" class="cd-popup-trigger5" style="margin-left: 60px;">Plus d'infos ?</a>
+
+<div class="cd-popup5" role="alert">
+    <div class="cd-popup-container5" style="color: #000080;">
+        <p style="text-align: left; text-align: justify;">
+        Vous êtes couvert pour les dommages provoqués par les tempêtes, la grêle, le poids de la neige et de la glace sur les toitures.
+        </p>
+        <p style="margin-top: -80px; text-align: left; text-align: justify;"> 
+        Vous êtes également garanti lorsqu'un arbre, un objet projeté par le vent cause des dommages à vos biens assurés.</p>
+        
+        <a href="#0" class="cd-popup-close5 img-replace5">Close</a>
+    </div>
+</div>
+
+</div>
+
+<p style="margin-left: 290px; margin-top: 180px; font-size: 30px; font-weight: bold; color: #800000">Personnalisez votre offre</p>
+
+<div id="side_Assistance" class="sidebar">
+<p style="text-align: center; font-weight: bold; color: #800000">Assistance aux locaux</p>
+
+
+
+<input type= "checkbox" class="option-input_radio45 json" name="add_al" id="add_al" /><font style="color: #800000; font-weight: bold;";>Ajouter
+
+
+
+<a href="#0" class="cd-popup-trigger6">Plus d'infos ?</a>
+
+<div class="cd-popup6" role="alert">
+    <div class="cd-popup-container6" style="color: #000080;">
+        <p style="text-align: center; text-align: justify; font-weight: normal;">Vous bénéficiez d’une intervantion en urgence 24/7 en cas de sinsitre touchant les parties communes de la copropriété ! <br><br>
+        Par exemple : <br><br>
+        - Envoi d'un professionnel en plomberie, chauffage, serrurerie, électricité, menuiserie, vitrerie, maçonnerie, couverture ou nettoyage. <br><br>
+        - Organisation et prise en charge du gardiennage des locaux </p>
+        
+        <a href="#0" class="cd-popup-close6 img-replace6">Close</a>
+    </div>
+</div>
+
+</div>
+
+<div id="side_pj" class="sidebar">
+<p style="text-align: center; font-weight: bold; color: #800000">Protection Juridique étendue</p>
+
+
+<input type= "checkbox" class="option-input_radio45 json" name="add_pj" id="add_pj" /><font style="color: #800000; font-weight: bold";>Ajouter
+
+<a href="#0" class="cd-popup-trigger7">Plus d'infos ?</a>
+
+<div class="cd-popup7" role="alert">
+    <div class="cd-popup-container7" style="color: #000080;">
+        <p style="text-align: left; text-align: justify; font-weight: normal;">
+        Un litige avec un copropriétaire ? un artisan ?<br>
+        Notre protection juridique est là pour vous accompagner dans vos démarches ! (assistance téléphonique et physique avec un de nos conseillers)</p>
+        
+        <a href="#0" class="cd-popup-close7 img-replace7">Close</a>
+    </div>
+</div>
+</div>
+
+<div id="side_ame_ext" class="sidebar">
+<p style="text-align: center; font-weight: bold; color: #800000">Aménagements extérieurs</p>
+
+<input type= "checkbox" class="option-input_radio106 json" name="add_ame" id="add_ame" /><font style="color: #800000; font-weight: bold";>Ajouter
+
+<a href="#0" class="cd-popup-trigger14">Plus d'infos ?</a>
+
+<div class="cd-popup14" role="alert">
+    <div class="cd-popup-container14" style="color: #000080;">
+        <p style="text-align: justify; font-weight: normal;">
+        Nous assurons les aménagements extérieurs suivants : <br><br>
+        - les barrières et les portails,<br>
+        - les digicodes et les interphones,<br>
+        - les dispositifs d'éclairage fixés au sol, tels que les lampadaires, les systèmes d'arrosage intégrés,<br>
+        - les jeux extérieurs fixes tel que les portiques, les balançoires, les tourniquets, les toboggans,<br>
+        - les bassins, le mobilier extérieur fixe, tels que bancs, tables en pierre,<br>
+        - les équipements de développement durable suivants : pompes à forage, éoliennes, cuves de récupération d'eau, bacs à compost,<br>
+        - les antennes réceptrices de radios ou de télévision, <br>
+        - les végétaux (arbres ou arbustes).<br>
+
+        </p>
+        
+        <a href="#0" class="cd-popup-close14 img-replace14">Close</a>
+    </div>
+</div>
+
+</div>
+       
+    <input class="json" type="text" id="estimation" value="" disabled="disabled" style="margin-left: 68%; width: 30%; height: 140px; font-size: 44px; text-align: center; margin-top: -485px;"/></input>
+
+    <input class="json" type="text" id="estimation4" value="" disabled="disabled" style="margin-left: 68%; width: 30%; height: 140px; font-size: 44px; text-align: center; margin-top: -485px; display: none;"/></input>
+
+    <p id="estima_indi" style="margin-left: 935px; color: #000080; font-size: 12px; font-weight: bold; margin-top: -320px;" >* Tarif annuel indicatif, sous réserve d’une étude détaillée.</p>
+ 
+ <svg class="arrow">
+        <path class="a1" d="M0 0 L30 32 L60 0"></path>
+        <path class="a2" d="M0 20 L30 52 L60 20"></path>
+        <path class="a3" d="M0 40 L30 72 L60 40"></path>
+</svg>
+
+      <a><input type="button" value="Créer mon devis" name="devisperso" id="devisperso" style="margin-left: 930px; margin-top: 130px; width: 25%;" class="js-scrollTo" href="#page-1"></a>
+  </div>
+</div>
+ 
+
+<div id="page-1">
+   <div id="devisperso1" style="display: none">  
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<img src="440045-200.png" style="margin-left: 0px"><p style=" margin-left: 230px; margin-top: -150px; margin-bottom: 30px; color: #FFF; position: inline"><font size="10" style="display: inline-flex;">Votre devis personnalisé</font></p>
+
+
+<br>
+
+<br>
+
+            <fieldset id="fieldset_coord">
+
+                <legend style="font-weight: bold;"><span class="number">1</span> Coordonnées du contact</legend>
+                
+<div class="row"> 
+<br>
+                    <label id="coord1" class="col1" for="name" style="font-weight: bold; color: #000080; margin-top: 10px; margin-left: -20px;">Nom<font style="color: #FD0000">*</font></label>
+                        <input class="col2 json" type="text" id="name" name="name" required="required" />
+                    <label id="coord2" class="col3" for="prenom" style="font-weight: bold; color: #000080; margin-top: 10px;">Prénom<font style="color: #FD0000">*</font></label>
+                        <input class="col4 json" type="text" id="prenom" name="prenom" required="required" />
+                    <label id="coord3" class="col1" for="email" style="font-weight: bold; color: #000080; margin-top: 10px; margin-left: -20px;">Email<font style="color: #FD0000">*</font></label>
+                        <input class="col2 json" type="email" id="email" name="email" required="required"/>
+                    <label id="coord4" class="col3" for="telephone" style="font-weight: bold; color: #000080; margin-top: 10px;">Téléphone<font style="color: #FD0000">*</font></label>
+                        <input class="col4 json" type="text" id="telephone" name="telephone" required="required" pattern="0[1-9]([-. ]?[0-9]{2}){4}"/>
+                    <label class="col1" type="text" for="adresse" style="font-weight: bold; color: #000080; margin-top: 10px; margin-left: -20px;">Adresse<font style="color: #FD0000">*</font></label>
+                        <input class="col2 json" type="text" id="adresse" name="adresse" required="required"/>
+                    <label class="col3" style="font-weight: bold; color: #000080; margin-top: 10px;">Code Postal<font style="color: #FD0000">*</font></label>
+                        <input id="cp" class="col4 json" type="text" name="cp" required="required"/>
+                    <label class="col1" for="ville" style="font-weight: bold; color: #000080; margin-top: 10px; margin-left: -20px;">Ville<font style="color: #FD0000">*</font></label>
+                        <input class="col2 json" type="text" id="ville" name="ville" required="required"/>
+                    <br>
+                    <label for="Qualite" id="qualii" style="font-weight: bold; color: #000080;">Qualité</label>
+                        <select style="margin-left:5px" id="syndicselect" class="json" name="Qualite" onchange="Javascript:displaymessage()">
+                            <option value="">-Sélectionnez-</option>
+                            <option value="syndic_pro">Syndic Professionnel</option>
+                            <option value="syndic_ben">Syndic Bénévole</option>
+    
+                        </select>
+                <div id="qualite1" style="display: none;">
+                    <label style="margin-left: -22px; font-weight: bold; color: #000080;">Nom du cabinet </label>
+                        <input type="text" name="nom du cabinet" class="json" id="cab_nom"><br>
+                    </div>
+
+
+
+                <div id="qualite2" style="display: none;">
+                    <label style="font-weight: bold; color: #000080; margin-left: -45%;">Nous vous conseillons de souscrire notre Assurance de Responsabilité Civile du Syndic Bénévole. Elle vous protégera en cas de litige !</label>
+                    <br>
+                    <div id="side_rc_bene" class="sidebar">
+                        <p style="text-align: center; font-weight: bold; color: #800000">RC bénévole</p>
+
+
+                            <input type= "checkbox" class="option-input_radio45 json" name="add_rc_bene" id="add_rc_bene" /><font style="color: #800000; font-weight: bold;";>Ajouter
+
+
+
+                            <a href="#0" class="cd-popup-trigger15">Plus d'infos ?</a>
+
+                                    <div class="cd-popup15" role="alert">
+                                    <div class="cd-popup-container15" style="color: #000080; text-align: justify; font-weight: normal;">
+                                            <p> Au titre de la responsabilité civile, le syndicat des copropriétaires peut se trouver engagé à l’égard des tiers en cas de sinistre provoqué par :<br><br>
+                                            - Les bâtiments (passant blessé par une tuile du toit, locataire qui se blesse dans les escaliers pas entretenus etc.). À ce titre, il peut être utile que le contrat d’assurance mentionne l’existence éventuelle de l’ascenseur.<br><br>
+                                            - Les personnes assurant l’entretien de l’immeuble (femme de ménage, gardien etc.).
+                                            </p>
+        
+                                            <a href="#0" class="cd-popup-close15 img-replace15">Close</a>
+                                    </div>
+                                    </div>
+
+                            <input class="json" type="text" id="estimation1" value="" disabled="disabled" style="margin-left: 280px; width: 280px; height: 100px; font-size: 30px; text-align: center; margin-top: -90px;"/></input>
+
+                    </div>
+                    <br>
+                    
+                </div>
+
+        </div>
+
+            </fieldset>
+                        <br>
+            <fieldset id="fieldset_immeuble">
+
+                <legend><span class="number">2</span> Caractéristiques de l'immeuble</legend>
+                <br>
+                <label>Nom de la copropriété</label>
+                <input type="text" name="nom_copro" class="json" id="nomcop">
+       
+                <div style="margin-top: -25px;">
+                <label for="Adresse identique a celle du souscripteur" style="margin-left: -8px;">Adresse identique à celle du demandeur </label>
+                    <input type= "radio" class="option-input radio5 json" name="adresse identique" value="meme_adresse" checked="checked" /><font style="color: #000080";> oui
+                        <input type= "radio" class="option-input radio5 json" name="adresse identique" value="adresse_differente" /><font style="color: #000080";> non
+                            <div id="radio_non" style="display: none;">
+                                <br>
+                            <label style="margin-left: 100px;" for="adresse_nouvelle">Adresse de la copropriété </label>
+                            <input type="text" id="adresse_identique" class="json" name="adresse_nouvelle" />
+                            <label style="margin-left: 205px" for="cp_nouveau">Code Postal </label>
+                            <input style="margin-left: 305px; margin-top: -40px" type="text" id="cp_2" class="json" name="cp_nouveau" /><br>
+                            <label style="margin-left: 265px" for="ville identique">Ville </label>
+                            <input style="margin-left: 305px; margin-top: -40px" type="text" id="ville_identique" class="json" name="ville identique" />
+                            </div>
+                        </div>
+                    <br>
+                   
+                      
+                        <label for="Surface totale">Surface totale de la copropriété </label>
+                        <input type="text" id="Surface_totale" name="Surface totale" readonly="readonly">
+
+                    <br>
+                         <label for="Annee_de_construction">Année de construction<font style="color: #FD0000">*</font></label>
+                                <select required aria-required="true" class="json" name="Annee_de_construction" id="Annee_de_construction_bat" onchange="Javascript:displaymessage2()" >
+                                        <option value="0">-Selectionnez-</option>
+                                        <option value="av_1900">Avant 1900</option>
+                                        <option value="1900-1948">Entre 1900 et 1948</option>
+                                        <option value="1949-1997">Entre 1949 et 1997</option>
+                                        <option value="ap_1997">Apres 1997</option>
+                                </select>
+
+             <br>
+                        <label for="Batiment historique" style="margin-left: 0px;">Batiment historique </label>
+
+<a href="#0" class="cd-popup-trigger11" style="margin-left: 0px; font-weight: normal; font-size: 12px;">?</a>
+
+<div class="cd-popup11" role="alert">
+    <div class="cd-popup-container11" style="color: #000080;">
+        <p style="text-align: left; text-align: justify; font-weight: normal;">
+            Qu'il soit "classé" ou " inscrit", un monument historique est, en France, un meuble ou un immeuble recevant par arrêté un statut juridique et un label destinés à le protéger, du fait de son intérêt historique, artistique ou architectural.
+        </p>
+        
+        <a href="#0" class="cd-popup-close11 img-replace11">Close</a>
+    </div>
+</div>
+
+                    <input type= "radio" class="option-input radio2 json" name="Batiment historique" /><font style="color: #000080";> oui
+                <input type= "radio" class="option-input radio2 json" name="Batiment historique" checked /><font style="color: #000080";> non
+        
+               
+
+                    
+<br><br>
+                <label for="Nombre de batiments">Nombre(s) de batiment(s) composant(s) la copropriété<font style="color: #FD0000">*</font></label>
+                    <select name="Nbbatiment" class="json" id="Nombres_de_batiments_copro" onchange="Javascript:displaymessage1()">
+                            <option value="">-Sélectionnez-</option>
+                            <option value="1_batiment">1</option>
+                            <option value="2_batiments">2</option>
+                            <option value="3_batiments">3</option>
+                            <option value="4_batiments">4</option>
+                            <option value="5_batiments">5</option>
+                    </select>
+                    <div id="Nb2" style="display: none;">
+                            <label style="margin-left: -8px;">Surface du batiment 1 </label>
+                                <input type="text" class="json" name="surface batiment1" id="sur_bat2.1" placeholder="en m²"><br>
+                            <label style="margin-left: -8px;"">Surface du batiment 2 </label>
+                                <input type="text" class="json" name="surface batiment2" id="sur_bat2.2" placeholder="en m²">
+                        <div>
+                            <label for="Distance entre les batiments" style="margin-left: -8px;">Distance entre les batiments > 10 mètres </label>
+                                <input type= "radio" class="option-input radio4 json" name="Distance entre les batiments" /><font style="color: #000080";> oui
+                                <input type= "radio" class="option-input radio4 json" name="Distance entre les batiments" /><font style="color: #000080";> non
+                        </div>
+                    </div>
+
+                    <div id="Nb3" style="display: none;">
+                            <label style="margin-left: -8px;">Surface du batiment 1 </label>
+                                <input type="text" class="json" name="surface batiment1" id="sur_bat3.1" placeholder="en m²"><br>
+                            <label style="margin-left: -8px;">Surface du batiment 2 </label>
+                                <input type="text" class="json" name="surface batiment2" id="sur_bat3.2" placeholder="en m²"><br>
+                            <label style="margin-left: -8px;">Surface du batiment 3 </label>
+                                <input type="text" class="json" name="surface batiment3" id="sur_bat3.3" placeholder="en m²"><br>
+                        <div>
+                            <label for="Distance entre les batiments" style="margin-left: -8px;">Distance entre les batiments > 10 mètres </label>
+                                <input type= "radio" class="option-input radio4 json" name="Distance entre les batiments" /><font style="color: #000080";> oui
+                                <input type= "radio" class="option-input radio4 json" name="Distance entre les batiments" /><font style="color: #000080";> non
+                        </div>
+                    </div>
+
+                    <div id="Nb4" style="display: none;">
+                            <label style="margin-left: -8px;">Surface du batiment 1 </label>
+                                <input type="text" class="json" name="surface batiment1" id="sur_bat4.1" placeholder="en m²"><br>
+                            <label style="margin-left: -8px;">Surface du batiment 2 </label>
+                                <input type="text" class="json" name="surface batiment2" id="sur_bat4.2" placeholder="en m²"><br>
+                            <label style="margin-left: -8px;">Surface du batiment 3 </label>
+                                <input type="text" class="json" name="surface batiment3" id="sur_bat4.3" placeholder="en m²"><br>
+                            <label style="margin-left: -8px;">Surface du batiment 4 </label>
+                                <input type="text" class="json" name="surface batiment4" id="sur_bat4.4" placeholder="en m²"><br>
+                        <div>
+                            <label for="Distance entre les batiments" style="margin-left: -8px;">Distance entre les batiments > 10 mètres </label>
+                                <input type= "radio" class="option-input radio4 json" name="Distance entre les batiments" /><font style="color: #000080";> oui
+                                <input type= "radio" class="option-input radio4 json" name="Distance entre les batiments" /><font style="color: #000080";> non
+                        </div>
+                    </div>
+
+                    <div id="Nb5" style="display: none;">
+                            <label style="margin-left: -8px;">Surface du batiment 1 </label>
+                                <input type="text" class="json" name="surface batiment1" id="sur_bat5.1" placeholder="en m²"><br>
+                            <label style="margin-left: -8px;">Surface du batiment 2 </label>
+                                <input type="text" class="json" name="surface batiment2" id="sur_bat5.2" placeholder="en m²"><br>
+                            <label style="margin-left: -8px;">Surface du batiment 3 </label>
+                                <input type="text"  class="json"name="surface batiment3" id="sur_bat5.3" placeholder="en m²"><br>
+                            <label style="margin-left: -8px;">Surface du batiment 4 </label>
+                                <input type="text" class="json" name="surface batiment4" id="sur_bat5.4" placeholder="en m²"><br>
+                            <label style="margin-left: -8px;">Surface du batiment 5 </label>
+                                <input type="text" class="json" name="surface batiment5" id="sur_bat5.5" placeholder="en m²"><br>
+                        <div>
+                            <label for="Distance entre les batiments" style="margin-left: -8px;">Distance entre les batiments > 10 mètres </label>
+                                <input type= "radio" class="option-input radio4 json" name="Distance entre les batiments" id="dist_10m_oui" /><font style="color: #000080";> oui
+                                <input type= "radio" class="option-input radio4 json" name="Distance entre les batiments" id="dist_10m_non"/><font style="color: #000080";> non
+                        </div>
+                    </div>
+                <br />
+                    
+                    <label for="Nombredetages" style="margin-left: 0px;">Nombres d'étages<font style="color: #FD0000">*</font></label>
+
+<a href="#0" class="cd-popup-trigger12" style="margin-left: 0px; font-weight: normal; font-size: 12px;">?</a><label style="margin-left: 2%;">RDC + </label>
+
+<div class="cd-popup12" role="alert">
+    <div class="cd-popup-container12" style="color: #000080;">
+        <p style="text-align: left; text-align: justify; font-weight: normal;">
+            Si votre copropriété est composée de plus d'un bâtiment, veuillez renseignez ce champ pour le bâtiment le plus haut.
+        </p>
+        
+        <a href="#0" class="cd-popup-close12 img-replace12">Close</a>
+    </div>
+</div>
+
+                    <select name="Nbeta" class="json" id="Nbeta" onchange="Javascript:displayeta2()">
+                        <option value="">-Sélectionnez-</option>
+                        <option value="1-9_etages">1 à 9 étages</option>
+                        <option value="plus_10_etages">Plus de 10 étages</option>
+                    </select>
+                
+                            <div id="eta2" style="display: none;">
+                                <label for="Hauteur du batiment" style="margin-left: -8px;">Hauteur du batiments > 28 metres </label>
+                                    <input type= "radio" class="option-input radio3 json" name="Hauteur du batiment" id="plus_de_28m" /><font style="color: #000080";> oui
+                                    <input type= "radio" class="option-input radio3 json" name="Hauteur du batiment" id="moins_de_28m" /><font style="color: #000080";> non
+                            </div>
+                        
+<br>
+
+
+                                    <label for="nombre_de_ss" style="margin-left: 0px;">Niveaux de sous-sol<font style="color: #FD0000">*</font></label>
+
+<a href="#0" class="cd-popup-trigger13" style="margin-left: 0px; font-weight: normal; font-size: 12px;">?</a>
+
+<div class="cd-popup13" role="alert">
+    <div class="cd-popup-container13" style="color: #000080;">
+        <p style="text-align: left; text-align: justify; font-weight: normal;">
+            Si votre copropriété est composée de plus d'un bâtiment, veuillez renseignez ce champ pour le bâtiment avec le sous sol le plus important.
+        </p>
+        
+        <a href="#0" class="cd-popup-close13 img-replace13">Close</a>
+    </div>
+</div>
+
+                                        <select required aria-required="true" class="json" id="nombre_de_ss" for="nombre_de_ss" name="nombre_de_ss" onchange="Javascript:displaysoussol()">
+                                            <option value="0">-Sélectionner-</option>
+                                            <option value="pas_de_ss">0</option>
+                                            <option value="1_ss">1</option>
+                                            <option value="2_ss">2</option>
+                                            <option value="3_ss">3</option>
+                                            <option value="4_et_plus_ss">4 et plus</option>
+                                        </select>
+                                    
+
+                                                <div id="Nombress1" style="display: none;">
+                                                    <label for="Parking souterrain" style="margin-left: -8px;"><li>Parking sous terrain </label>
+                                                        <input type= "radio" class="option-input radio21 json" name="parking_sous_terrain" id="parking_sous_terrain_oui"/><font style="color: #000080";> oui
+                                                        <input type= "radio" class="option-input radio21 json" name="parking_sous_terrain" id="parking_sous_terrain_non"/><font style="color: #000080";> non</li>
+                                                </div>
+
+                                                <div id="Nombress2" style="display: none;">
+                                                    <label for="locaux" style="margin-left: -8px;"><li>Local à poubelles, local technique ou caves </label>
+                                                        <input type= "radio" class="option-input radio30 json" name="locauux" id="presence_locaux_ss_oui"/><font style="color: #000080";> oui
+                                                        <input type= "radio" class="option-input radio30 json" name="locauux" id="presence_locaux_ss_non"/><font style="color: #000080";> non</li>
+                                                     </div>
+
+                                                <div id="Nombress4" style="display: none; z-index: 9999;">
+                                                    <p style="margin-top: 50px; margin-left: 30px; margin-right: 30px; color: #000080; font-weight: bold; font-size: 35px; text-align: center"> Oups ... Votre copropriété est composée d'au moins 4 niveaux de sous-sol ! Nous devons donc procéder à une étude particulière. Contactez-nous selon le moyen qui vous convient le mieux ! </p>
+                                                    <img src="rappel_auto.png" style="margin-top: -10px; margin-left: 150px;">
+                                                    
+                                                    <div id="contact_com1" style="margin-top: -27%; margin-left: 51%; object-position: absolute; position: fixed; width: 570px;" >
+            
+                                                    <h1 id="tel_h11" style="font-size: 20px; color: #000080; font-weight: bold; margin-left: 0%;">Téléphone</h1>
+                                                    <p style="color: #000080">Une équipe de conseillers spécialisés à votre écoute au 02.32.95.35.92 (du Lundi au Vendredi de 8h à 19h et le Samedi de 9h à 17h)</p>
+
+                                                    <h1 id="internet_h11" style="font-size: 20px; color: #000080; font-weight: bold; margin-top: 1%; margin-left: 0%;">Internet</h1>
+                                                    <p style="color: #000080">Pour obtenir une information sur nos contrats, nos tarifs, nos services, recevoir un document ... <a href="https://www.matmut.fr/pro" target="_blank" style="font-weight: bold; color: #22baba">Effectuer votre demande en ligne</a></p>
+                                                    <p style="margin-top: -3%; color: #000080">Vous pouvez aussi nous écrire à l'adresse suivante : <a href="mailto:entreprises@imentreprises.fr" style="font-weight: bold; color: #22baba">entreprises@imentreprises.fr</a></p>
+
+                                                    <h1 id="courrier_h11" style="font-size: 20px; color: #000080; font-weight: bold; margin-top: 1%; margin-left: 0%;">Courrier</h1>
+                                                    <p style="color: #000080">11 rue du Docteur Lancereaux</p>
+                                                    <p style="margin-top: -3%; color: #000080">75378 Paris Cedex 8</p>
+
+                                                    </div>
+
+                                                    <input type="button" style="width: 15%; height: 30px; margin-left: -100px; border: 3px solid #000080; position: fixed; margin-top: 360px; line-height: 0px;" id="r_accueil3" name="r-accueil3" value="Retour devis">
+
+                                                
+                                            </div>
+
+<br>
+                        
+                    
+                <label for="Gardien1">Présence d'un gardien d'immeuble</label>
+                    <select name="Gardien1" class="json" id="presence_gardien" size="1">
+                        <option value="0">-Sélectionnez-</option>
+                        <option value="pas_de_gardien">Pas de gardien</option>
+                        <option value="Tous_les_jours">Tous les jours</option>
+                        <option value="En_semaine">En semaine sauf le week-end</option>
+                        <option value="Quelques_fois_par_mois">Quelques fois par mois</option>
+                    </select>
+<br>
+                <label for="menage2">Présence d'un service de ménage</label>
+                    <select style="margin-left: 10px" name="menage2" class="json" id="presence_menage" size="1">
+                        <option value="0">-Sélectionnez-</option>
+                        <option value="pas_de_menage">Pas de service de ménage</option>
+                        <option value="une_fois_semaine">Une fois par semaine</option>
+                        <option value="Plusieurs_fois_semaine">Plusieurs fois par semaine</option>
+                    </select>
+<br>
+</fieldset>
+<br>
+
+<fieldset id="fieldset_diag">
+
+                                <div id="pas_diag" style="display: right;">
+                                    <p>Compte tenu de l'année de construction de votre immeuble, nous n'avez pas de diagnostics à fournir !</p>
+                                </div>
+
+
+                         <legend><span class="number">3</span> Diagnostics</legend>
+<br>                    
+                                <div id="anneediag1" style="display: none;">
+                                    <label for="Diagnostique amiante" style="margin-left: -8px;">Disposez-vous d'un diagnostic amiante ? </label>
+                                        <input type= "radio" class="option-input radio8" name="diagnostique amiante" style="margin-left : 67px;" checked /><font style="color: #000080";> oui
+                                        <input type= "radio" class="option-input radio8" name="diagnostique amiante"/><font style="color: #000080";> non
+                                    
+                                            <div id="radio_noon" style="display: none;">
+                                            <br>
+                                                <p style="margin-left: -15px; margin-top: -10px; margin-bottom: -20px;">Les copropriétés construites avant le 1er Juillet 1997 sont soumises à l'obligation légale de faire vérifier l'état des matériaux pouvant contenir de l'amiante.</p>
+                                            </div>
+                                            <br>
+                                            
+                                            <div id="radio-noon" style="display: right">
+                                                <label for="diagpositif" style="margin-left: -8px;"><li>A-t-il conclu à un niveau de risque dégradé ?</label>
+                                                    <input type= "radio" class="option-input radio38" name="diagposi" /><font style="color: #000080";> oui
+                                                    <input type= "radio" class="option-input radio38" name="diagposi" /><font style="color: #000080";> non</li>
+                                            </div>
+                                            
+                                <div id="anneediag2" style="display: none;">
+                                    <div>
+                                        <label for="Diagnostique plomb" style="margin-left: -25px;">Disposez-vous d'un diagnostic plomb ? </label>
+                                            <input type= "radio" class="option-input radio9" name="diagnostique plomb" style="margin-left : 82px;" /><font style="color: #000080";> oui
+                                            <input type= "radio" class="option-input radio9" name="diagnostique plomb" /><font style="color: #000080";> non
+                                    </div>
+                                </div>
+
+                                <div id="anneediag3" style="display: none;">
+                                    <div>
+                                        <label for="Diagnostique termitte" style="margin-left: -25px;">Disposez-vous d'un diagnostic termites ? </label>
+                                            <input type= "radio" class="option-input radio10" name="diagnostique termitte" style="margin-left : 68px;" /><font style="color: #000080";> oui
+                                            <input type= "radio" class="option-input radio10" name="diagnostique termitte" /><font style="color: #000080";> non
+                                    </div>
+                                </div>
+<br>
+</fieldset>
+<br>
+
+
+<fieldset id="fieldset_commerce">
+<br>
+        
+        <legend><span class="number">4</span> Présence de locaux commerciaux</legend>
+                <div>
+                        <label for="local commercial" style="margin-left: -8px;">Présence de locaux commerciaux pour une surface supérieur à 25% de la Surface Totale<font style="color: #FD0000">*</font></label>
+                            <input type= "radio" class="option-input radio11" name="local commercial" /><font style="color: #000080;";> oui
+                            <input type= "radio" class="option-input radio11" name="local commercial" checked /><font style="color: #000080";> non
+                    <div id="radio_local" style="display: none;">
+                    <br>
+                    <div id="dynamicInp_2">
+                        <label for="activite commerciale" style="margin-left: -12px;"> Commerce n° 1</label>
+                            <input type="text" id="surface_commerce" name="surface commerce" placeholder="surface en m²" />
+                            <input type="text" id="surface_commerce" name="surface commerce" placeholder="detail activité" /><br>
+                    </div>
+                            <input type="button" value=" + Ajouter commerce" id="add_comm" onClick="addInp('dynamicInp_2')">
+                    </div>
+                </div>
+                <br>
+                        <label for="risque aggravant">Présence d'une activite particulière au sein ou mitoyenne de votre copropriété </label><br>
+                            <input type= "checkbox" class="option-input radio13" name="dancing" /><font style="color: #000080";> Industrie du bois, verreries<br>
+                            <input type= "checkbox" class="option-input radio13" name="ambassade" /><font style="color: #000080";> Traitement des déchets<br>
+                            <input type= "checkbox" class="option-input radio13" name="bar" /><font style="color: #000080";> Entrepôts de stockage<br>
+                            <input type= "checkbox" class="option-input radio13" name="ambassade" /><font style="color: #000080";> Etablissement de nuit (bar de nuit, discothèque)<br><br>
+                <br>
+                        <label for="Risque complementaire">Souhaitez-vous couvrir des risques complémentaires ? </label><br>
+                            <input type= "checkbox" class="option-input radio14" name="piscine" id="piscine" /><font style="color: #000080";>Piscine</font><br>
+                <div id="divpiscine" style="display: none; margin-bottom: -30px;">
+                        <label for="piscineloi"><p>Etes-vous en conformité avec la loi du 3 Janvier 2003, relative a la securite des piscine ?</label>
+                            <input type= "radio" class="option-input radio23" id="radio_pis" name="radio_pis" checked="checked" /><font style="color: #000080";> oui
+                            <input type= "radio" class="option-input radio23" id="radio_pis1" name="radio_pis" /><font style="color: #000080";> non
+                                <a href="#0" class="cd-popup-trigger10" style="margin-left: 10px;">?</a>
+                        <label for="pisc"><p>Valeur de la piscine</label>
+                            <input type="text" name="pisci" id="add_piscine" placeholder="en €">
+
+
+                <div id="side_piscine" class="sidebar">
+                        <p style="text-align: center; font-weight: bold; color: #800000; margin-bottom: -1%;">Piscine</p>
+
+                            <input type= "checkbox" class="option-input_radio300" name="add_piscine" id="add_piscine_val" style="margin-left: 1%;" /><font style="color: #800000; font-weight: bold;";>Ajouter
+
+    <a href="#0" class="cd-popup-trigger17">Plus d'infos ?</a>
+
+        <div class="cd-popup17" role="alert">
+            <div class="cd-popup-container17" style="color: #000080;">
+                <p style="text-align: left; font-weight: normal;">
+                    Nous couvrons votre piscine ainsi que ses équipements contre les risques :<br><br>
+                                    - Incendie, explosion,<br>
+                                    - Evènements climatiques : tempête, grêle et poinds de la neige, inondations, catastrophes naturelles, foudre,<br>
+                                    - Dommages électriques,<br>
+                                    - Catastrophes technologiques,<br>
+                                    - Acte de terrorisme et attentats,<br>
+                                    - Chute d'appareils de navigation aérienne, choc de véhicule terrestre,<br>
+                                    - Vol, tentative de vol, acte de vandalisme.<br>
+                </p>
+
+        
+                <a href="#0" class="cd-popup-close17 img-replace17">Close</a>
+            </div>
+        </div>
+
+</div>
+
+<input class="json" type="text" id="estimation5" value="" disabled="disabled" style="margin-left: 290px; width: 280px; height: 100px; font-size: 30px; text-align: center; margin-top: -145px;"/></input>
+
+
+                            <div class="cd-popup10" role="alert" style="z-index: 9999;">
+                            <div class="cd-popup-container10" style="color: #000080; z-index: 9999;">
+                                <p style="text-align: left; text-align: justify;">
+                                Si vous êtes propriétaire d'une piscine privé à usage collectif dont le bassin est totalement ou partiellement enterré.</p>
+                                <p style=" text-align: left; text-align: justify; margin-top: -100px;">Vous devez intaller au moins un de ces 4 équipements :</p>
+                                <ul style="text-align: left; text-align: justify; margin-top: -60px;">
+                                    <li>Barrière de protection</li>
+                                    <li>Système d'alarme sonore</li>
+                                    <li>Couverture de sécurité (bache)</li>
+                                    <li style="text-align: left;">Abris de type véranda recouvrant intégralement le bassin</li>
+                                </ul>
+        
+                                <a href="#0" class="cd-popup-close10 img-replace10">Close</a>
+                                </div>
+                            </div>
+                            </div>
+
+                                <div id="erreur3" style="display: none; margin-top: 102px;">
+                                                    <p style="margin-top: 50px; margin-left: 30px; margin-right: 30px; color: #000080; font-weight: bold; font-size: 35px; text-align: center"> Oups ... Votre piscine n'est pas en conformité ! Nous vous préconisons de prendre les mesures nécessaires. </p>
+                                                    <img src="rappel_auto.png" style="margin-top: 20px; margin-left: 11%;">
+                                                    <div id="contact_com" style="margin-top: -27%; margin-left: 54%; object-position: absolute; position: fixed; width: 550px;" >
+            
+                                                        <h1 id="tel_h1" style="font-size: 20px; color: #000080; font-weight: bold; margin-left: 0%;">Téléphone</h1>
+                                                        <p style="color: #000080">Une équipe de conseillers spécialisés à votre écoute au 02.32.95.35.92 (du Lundi au Vendredi de 8h à 19h et le Samedi de 9h à 17h)</p>
+
+                                                        <h1 id="internet_h1" style="font-size: 20px; color: #000080; font-weight: bold; margin-top: 1%; margin-left: 0%;">Internet</h1>
+                                                        <p style="color: #000080">Pour obtenir une information sur nos contrats, nos tarifs, nos services, recevoir un document ... <a href="https://www.matmut.fr/pro" target="_blank" style="font-weight: bold; color: #22baba">Effectuer votre demande en ligne</a></p>
+                                                        <p style="margin-top: -3%; color: #000080">Vous pouvez aussi nous écrire à l'adresse suivante : <a href="mailto:entreprises@imentreprises.fr" style="font-weight: bold; color: #22baba">entreprises@imentreprises.fr</a></p>
+
+                                                        <h1 id="courrier_h1" style="font-size: 20px; color: #000080; font-weight: bold; margin-top: 1%; margin-left: 0%;">Courrier</h1>
+                                                        <p style="color: #000080">11 rue du Docteur Lancereaux</p>
+                                                        <p style="margin-top: -3%; color: #000080">75378 Paris Cedex 8</p>
+
+                                                    </div>
+
+                                                    <input type="button" style="width: 15%; height: 30px; margin-left: -100px; border: 3px solid #000080; position: fixed; margin-top: 400px; line-height: 0px;" id="r_devis" name="r_devis" value="Retour devis">
+
+
+                                                </div>
+
+                    <input type= "checkbox" class="option-input radio76" name="salle-de-sport" id="salle_de_sport" /><font style="color: #000080;"> Salle de sport<br>
+                        <div id="divsalledesport" style="display: none; margin-bottom: -40px;">
+                            <label for="sds"><p>Valeur de la salle de sport</label>
+                                <input type="text" name="salleds" id="add_sport" placeholder="en €">
+
+
+                    <div id="side_sa_sport" class="sidebar">
+                        <p style="text-align: center; font-weight: bold; color: #800000; margin-bottom: -1%;">Salle de sport</p>
+
+                        <input type= "checkbox" class="option-input_radio301" name="add_sa_sport" id="add_sport_val" style="margin-left: 1%;" /><font style="color: #800000; font-weight: bold;";>Ajouter
+
+                <a href="#0" class="cd-popup-trigger18">Plus d'infos ?</a>
+
+                            <div class="cd-popup18" role="alert">
+                                <div class="cd-popup-container18" style="color: #000080;">
+                                    <p style="text-align: left; font-weight: normal;">
+                                        Nous couvrons votre salle de sport ainsi que ses équipements contre les risques :<br><br>
+                                                        - Incendie, explosion,<br>
+                                                        - Evènements climatiques : tempête, grêle et poinds de la neige, inondations, catastrophes naturelles, foudre,<br>
+                                                        - Dommages électriques,<br>
+                                                        - Catastrophes technologiques,<br>
+                                                        - Acte de terrorisme et attentats,<br>
+                                                        - Chute d'appareils de navigation aérienne, choc de véhicule terrestre,<br>
+                                                        - Vol, tentative de vol, acte de vandalisme.<br>
+                                    </p>
+                <a href="#0" class="cd-popup-close18 img-replace18">Close</a>
+                                </div>
+                            </div>
+                    </div>
+
+<input class="json" type="text" id="estimation6" value="" disabled="disabled" style="margin-left: 290px; width: 280px; height: 100px; font-size: 30px; text-align: center; margin-top: -145px;"/></input>
+
+</div>
+
+
+                <input type= "checkbox" class="option-input radio987" name="air de jeux" id="air_de_jeu"/><font style="color: #000080";> Aire de jeux<br>
+                        <div id="divairdejeu" style="display: none; margin-bottom: -40px;">
+                            <label for="adj"><p>Valeur de l'aire de jeux</label>
+                                <input type="text" name="adj" id="add_jeux" placeholder="en €">
+
+<div id="side_air_jeux" class="sidebar">
+    <p style="text-align: center; font-weight: bold; color: #800000; margin-bottom: -1%;">Air de jeux</p>
+
+    <input type= "checkbox" class="option-input_radio302" name="add_air_jeux" id="add_jeux_val" style="margin-left: 1%;" /><font style="color: #800000; font-weight: bold;";>Ajouter
+
+    <a href="#0" class="cd-popup-trigger19">Plus d'infos ?</a>
+
+        <div class="cd-popup19" role="alert">
+            <div class="cd-popup-container19" style="color: #000080;">
+                <p style="text-align: left; font-weight: normal;">
+                    Nous couvrons votre air de jeux ainsi que ses équipements contre les risques :<br><br>
+                                    - Incendie, explosion,<br>
+                                    - Evènements climatiques : tempête, grêle et poinds de la neige, inondations, catastrophes naturelles, foudre,<br>
+                                    - Dommages électriques,<br>
+                                    - Catastrophes technologiques,<br>
+                                    - Acte de terrorisme et attentats,<br>
+                                    - Chute d'appareils de navigation aérienne, choc de véhicule terrestre,<br>
+                                    - Vol, tentative de vol, acte de vandalisme.<br>
+                </p>
+        
+                <a href="#0" class="cd-popup-close19 img-replace19">Close</a>
+            </div>
+        </div>
+
+</div>
+
+<input class="json" type="text" id="estimation7" value="" disabled="disabled" style="margin-left: 290px; width: 280px; height: 100px; font-size: 30px; text-align: center; margin-top: -145px;"/></input>
+
+                        </div>
+
+                        <input type= "checkbox" class="option-input radio14" name="panneaux solaires" id="panneaux_solaire"/><font style="color: #000080";> Panneaux solaires et/ou panneaux photovoltaïques<br>
+                            <div id="divpanneaux" style="display: none; margin-bottom: -40px;">
+                            <label for="pan"><p>Valeur des panneaux</label>
+                                <input type="text" name="pan" id="add_panneaux" placeholder="en €">
+
+
+
+
+<div id="side_panneaux" class="sidebar">
+    <p style="text-align: center; font-weight: bold; color: #800000; margin-bottom: -1%;">Panneaux solaires</p>
+
+    <input type= "checkbox" class="option-input_radio303" name="add_panneaux" id="add_panneaux_val" style="margin-left: 1%;" /><font style="color: #800000; font-weight: bold;";>Ajouter
+
+    <a href="#0" class="cd-popup-trigger20">Plus d'infos ?</a>
+
+        <div class="cd-popup20" role="alert">
+            <div class="cd-popup-container20" style="color: #000080;">
+                <p style="text-align: left; font-weight: normal;">
+                    Nous couvrons vos paneaux solaires/photovoltaïques contre les risques :<br><br>
+                                    - Incendie, explosion,<br>
+                                    - Evènements climatiques : tempête, grêle et poinds de la neige, inondations, catastrophes naturelles, foudre,<br>
+                                    - Dommages électriques,<br>
+                                    - Catastrophes technologiques,<br>
+                                    - Acte de terrorisme et attentats,<br>
+                                    - Chute d'appareils de navigation aérienne, choc de véhicule terrestre,<br>
+                                    - Vol, tentative de vol, acte de vandalisme.<br>
+                </p>
+        
+                <a href="#0" class="cd-popup-close20 img-replace20">Close</a>
+            </div>
+        </div>
+
+</div>
+
+<input class="json" type="text" id="estimation8" value="" disabled="disabled" style="margin-left: 290px; width: 280px; height: 100px; font-size: 30px; text-align: center; margin-top: -145px;"/></input>
+
+                        </div>
+
+                                <input type="checkbox" class="option-input radio14" name="autre" id="autrerisque"/><font style="color: #000080";> Autre
+                                <input type="text" name="autretext" id="autre_text">
+                                <div id="divautre" style="display: none; margin-top: -35px;">
+                            <label for="pan"><p>Valeur</label>
+                                <input type="text" name="pan" id="val_autre" placeholder="en €">
+                        </div>
+                                
+                                        </fieldset>
+                                            <br>
+                                                <fieldset id="fieldset_assurance">
+                                            <legend><span class="number">5</span> Assurance Actuelle</legend>
+
+                                            <label style="margin-left: 8px;">Êtes-vous assuré actuellement ?</label>
+                                                <input type= "radio" class="option-input radio110" name="ass_actu" checked/> oui
+                                                <input type= "radio" class="option-input radio110" name="ass_actu" /> non
+                                                    <div id="radio_ass_actu" style="display: none;">
+                                            <label>Motif de votre non assurance</label>
+                                                        <select name="select_motif_ass_actu">
+                                                            <option>-Sélectionnez-</option>
+                                                            <option>Création de la copropriété</option>
+                                                            <option>Autre</option>
+                                                        </select>
+                                                    </div>
+                                        <div>
+                                            <label for="Sinistre sur 36 mois">Avez-vous eu des sinsitres lors des 3 dernières années ?<font style="color: #FD0000">*</font></label><br>
+                                                <input type= "radio" class="option-input radio12" name="Sinistre sur 36 mois" /> oui
+                                                <input type= "radio" class="option-input radio12" name="Sinistre sur 36 mois" checked /> non
+                                    <div id="radio_sinistre" style="display: none;">
+                                    <br>
+
+                                    <div id="dynamicInput">
+                                            <label for="Sinistre1" style="margin-left: -8px;">Sinistre 1 </label>
+                                                <select name="selectsin1" id="indemnisation_">
+                                                    <option>-Sélectionnez-</option>
+                                                    <option>Dégâts des eaux</option>
+                                                    <option>Bris de glace</option>
+                                                    <option>Vol</option>
+                                                    <option>Incendie</option>
+                                                    <option>Vandalisme</option>
+                                                    <option>Tempête</option>
+                                                    <option>Innondation</option>
+                                                    <option>Dommage électrique</option>
+                                                    <option>Choc de véhicule</option>
+                                                    <option>Autre</option>
+                                                </select>
+                                                <input type="text" class="json" id="indemnisation_h" placeholder="Indemnisation" />
+                                                <br />
+                                    </div>
+                        <input type="button" value=" + Ajouter un sinistre" id="add_sinistre" onClick="addInput('dynamicInput');">
+                                </div>
+                            </div>
+
+   
+                </fieldset>
+                        
+                <br>
+                <fieldset id="fieldset_upload">
+                    <legend><span class="number">6</span> Importer mes documents</legend>
+                    <br>
+    <p>Photo de la façade et extérieurs</p>
+
+    <div id='divHabilitSelectors3' class="input-file-container3">
+                <input class="input-file3" id="fileupload3" name="files" type="file" multiple> 
+                <label for="fileupload3" class="input-file-trigger3" id='labelFU3' tabindex="0">Choisissez un fichier</label>
+            </div>
+
+    <div id='divHabilitSelectors4' class="input-file-container4">
+                <input class="input-file4" id="fileupload4" name="files" type="file" multiple> 
+                <label for="fileupload4" class="input-file-trigger4" id='labelFU4' tabindex="0">Choisissez un fichier</label>
+            </div>
+
+
+    <div id='divHabilitSelectors5' class="input-file-container5">
+                <input class="input-file5" id="fileupload5" name="files" type="file" multiple> 
+                <label for="fileupload5" class="input-file-trigger5" id='labelFU5' tabindex="0">Choisissez un fichier</label>
+            </div>
+
+    <p>Photo du hall d'entrée</p>
+
+   <div id='divHabilitSelectors' class="input-file-container">
+                <input class="input-file" id="fileupload" name="files" type="file" multiple> 
+                <label for="fileupload" class="input-file-trigger" id='labelFU' tabindex="0">Choisissez un fichier</label>
+            </div>
+
+   <p>Photo des parties communes (couloirs et/ou escaliers)</p>
+
+  <div id='divHabilitSelectors2' class="input-file-container2">
+                <input class="input-file2" id="fileupload2" name="files" type="file" multiple> 
+                <label for="fileupload2" class="input-file-trigger2" id='labelFU2' tabindex="0">Choisissez un fichier</label>
+            </div>
+
+
+    <div id='divHabilitSelectors6' class="input-file-container6">
+                <input class="input-file6" id="fileupload6" name="files" type="file" multiple> 
+                <label for="fileupload6" class="input-file-trigger6" id='labelFU6' tabindex="0">Choisissez un fichier</label>
+            </div>
+
+
+    <div id="photo_ss" style="display: right;">
+    <p>Photo des sous-sols</p>
+
+    <div id='divHabilitSelectors7' class="input-file-container7">
+                <input class="input-file7" id="fileupload7" name="files" type="file" multiple> 
+                <label for="fileupload7" class="input-file-trigger7" id='labelFU7' tabindex="0">Choisissez un fichier</label>
+            </div>
+
+    <div id='divHabilitSelectors8' class="input-file-container8">
+                <input class="input-file8" id="fileupload8" name="files" type="file" multiple> 
+                <label for="fileupload8" class="input-file-trigger8" id='labelFU8' tabindex="0">Choisissez un fichier</label>
+            </div>
+    </div>
+
+
+    <p>Relevé de sinistralité</p>
+
+    <div id='divHabilitSelectors9' class="input-file-container9">
+                <input class="input-file9" id="fileupload9" name="files" type="file" multiple> 
+                <label for="fileupload9" class="input-file-trigger9" id='labelFU9' tabindex="0">Choisissez un fichier</label>
+            </div>
+
+    <div id="pas_diag2" style="display: right;">
+    <p>Diagnostics</p>
+    
+   <div id='divHabilitSelectors10' class="input-file-container10">
+                <input class="input-file10" id="fileupload10" name="files" type="file" multiple> 
+                <label for="fileupload10" class="input-file-trigger10" id='labelFU10' tabindex="0">Choisissez un fichier</label>
+            </div>
+
+    <div id='divHabilitSelectors11' class="input-file-container11">
+                <input class="input-file11" id="fileupload11" name="files" type="file" multiple> 
+                <label for="fileupload11" class="input-file-trigger11" id='labelFU11' tabindex="0">Choisissez un fichier</label>
+            </div>
+    </div>
+                  
+<br>
+<br>
+            </fieldset>
+
+             <br>
+                <input type="submit" value="Valider mon devis" id="bt_validation" style="margin-left: 180px;" onclick="window.open('index5.html')" /> 
+
+
+
+
+</div></div></div> 
+        </form>
+    </body>
+
+<script>  
+ var socket = io.connect('http://localhost:3000');
+</script>  
+<script>
+    $("#bt_validation").click(function() {
+        var json = {}
+        $(".json").each(function(){
+            var id = this.id
+            json[id] = this.value
+        })
+        socket.emit('json', json)
+    })
+    
+</script>
+
+</html>

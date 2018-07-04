@@ -1,0 +1,457 @@
+<html>
+<head>
+
+	<link rel="stylesheet" type="text/css" href="mystyle.css">
+	
+
+</head>
+<body id="index2">
+
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script src="jquery.js"></script>
+
+<script src="myscript.js"></script>
+
+
+<script>  
+ var socket = io.connect('http://localhost:3000');
+</script>  
+<script>
+    $("#bt_validation").click(function() {
+        var json = {}
+        $(".json").each(function(){
+            var id = this.id
+            json[id] = this.value
+        })
+        socket.emit('json', json)
+    })
+
+    
+</script>
+
+
+<div id="page-6">
+<div id="fixedbarre" style="position: absolute; position: fixed; width: 100%; height: 12%; left: 0; top: 0; background-color: rgba(255,255,255,1); z-index: 9999; border-bottom: 3px solid #000080;">
+
+        <input class="json" type="text" id="estimation2" value="" disabled="disabled" style="margin-left: 270px; width: 30%; height: 60px; font-size: 30px; text-align: center; position: fixed; display: none;"/></input>
+    
+        <a href="index3.html" id="contact1" name="contact1"><p style="text-align: center; margin-top: 10%;">Nous contacter</p></a>
+
+
+        <a href="index.html" id="retour_acc" name="retour_acc"><p style="text-align: center; margin-top: 10%;">Retour au simulateur</p></a>
+
+</div>
+
+
+<div id = "block">
+<img src="logo_435.png" style="position: fixed; top: 2%; left: 2%; z-index: 9999; object-position: absolute; height: 9%;" id="logo_ime">
+ </div>
+
+ 
+
+
+ <div id="erreur4" style="display: none; margin-top: 7.7vw;">
+        <p style="margin-top: 3%; color: #000080; font-weight: bold; font-size: 2.5vw; text-align: center"> Vous avez des questions ? Notre service client est là pour y répondre !</p>
+        <img src="rappel_auto.png" style="margin-top: 3%; margin-left: 13%; object-position: absolute; position: fixed">
+            <img src="contact2.png" style="margin-top: 5%; margin-left: 60%; object-position: absolute; position: fixed;">
+
+            <input type="button" style="width: 15%; height: 7%; margin-left: 40%; border: 3px solid #000080; position: fixed; position: absolute; margin-top: 30%; line-height: 0px;" id="r_accueil0" name="r-accueil" value="Retour accueil">
+
+
+</div>
+	
+	<p style="margin-top: 8%; margin-bottom: 5%; color: #000080; font-weight: bold; font-size: 2.5vw; text-align: center;">Tout ce que vous devez savoir sur l'assurance de votre copropriété !</p>
+
+
+
+<div id="corp_info">
+
+
+
+<fieldset id="actu_savoir" class="js-scrollTo" href="#page-3">
+    
+<p style="text-align: center; color: #000080; font-weight: bold; font-size: 2vw; margin-bottom: 1%; z-index: 9999;">Toute l'actualité de la copropriété</p>
+
+<img src="actu_copro.png" style="margin-left: 30%; margin-top: 3%; margin-bottom: 7%; z-index: 9999;">
+
+</fieldset>
+
+<fieldset id="pq_savoir" class="js-scrollTo" href="#page-4">
+    
+<p style="text-align: center; color: #000080; font-weight: bold; font-size: 2vw; margin-bottom: 1%; z-index: 9999;">Pourquoi choisir IME ?</p>
+
+<img src="coupe_ime.png" style="margin-left: 30%; margin-top: 10%; z-index: 9999;">
+
+
+
+</fieldset>
+
+<fieldset id="qq_savoir" class="js-scrollTo" href="#page-5">
+    
+<p style="text-align: center; color: #000080; font-weight: bold; font-size: 2vw; margin-bottom: 0%; z-index: 9999;">L'assurance copropriété ?</p>
+
+<img src="imm_ime.png" style="margin-left: 30%; margin-top: 1%; z-index: 9999;">
+
+
+</fieldset>
+
+</div>
+
+
+<p style="margin-top: 2%; margin-left: 35%; color: #000080; font-weight: bold; font-size: 2vw; z-index: 9999;"> Plus d'informations, par ici </p>
+
+<svg class="arrow-2">
+        <path class="a1" d="M0 0 L30 32 L60 0"></path>
+        <path class="a2" d="M0 20 L30 52 L60 20"></path>
+        <path class="a3" d="M0 40 L30 72 L60 40"></path>
+</svg>
+
+<div id="page-3">
+<div id="div_scinde">
+
+<p style="margin-top: 2%; margin-left: 5%; color: #FFF; font-weight: bold; font-size: 2vw; z-index: 9999;"> Toute l'actualité de la copropriété </p>
+
+<fieldset id="container_actu">
+    
+
+<fieldset id="article_1">
+    
+<p style="font-size: 1.5vw; color: #FF8C00; font-weight: bold; text-align: center;">Copropriété : les nouvelles règles d'indemnisation</p>
+<p style="font-size: 1vw; color: #000080;"> Cliquez sur l'image ci-dessous pour accéder à l'article !</p>
+
+<a href="http://www.argusdelassurance.com/reglementation/copropriete-les-nouvelles-regles-d-indemnisation.122812" target="_blank"><img src="argus_ime.png" alt="argus" width="70%" style="margin-top: 20%; margin-left: 15%;" /></a>
+
+
+
+</fieldset>
+
+<fieldset id="article_2">
+    
+<p style="font-size: 1.5vw; color: #FF8C00; font-weight: bold; text-align: center;">Copropriété, fonds de travaux obligatoire de la loi Alur</p>
+<p style="font-size: 1vw; color: #000080;"> Cliquez sur l'image ci-dessous pour accéder à l'article !</p>
+
+<a href="https://www.toutsurmesfinances.com/immobilier/loi-alur-le-fonds-de-travaux-obligatoire-des-coproprietes.html" target="_blank"><img src="logo_7742.png" alt="" width="99%" style="margin-top: 10%;" /></a>
+
+
+</fieldset>
+
+<fieldset id="article_3">
+    
+<p style="font-size: 1.5vw; color: #FF8C00; font-weight: bold; text-align: center;">Gestion d'une copropriété - Règles et conseils</p>
+<p style="font-size: 1vw; color: #000080;"> Cliquez sur l'image ci-dessous pour accéder à l'article !</p>
+
+<a href="https://droit-finances.commentcamarche.com/contents/643-gestion-d-une-copropriete-regles-et-conseils" target="_blank"><img src="logo-droit-finance.jpg" alt="droit_finance" width="99%" style="margin-top: 30%;" /></a>
+<br><br><br><br><br>
+<div id="page-4">
+</fieldset>
+
+</fieldset>
+</div>
+</div>
+<div id="page-4">
+<svg class="arrow-3">
+        <path class="a1" d="M0 0 L30 32 L60 0"></path>
+        <path class="a2" d="M0 20 L30 52 L60 20"></path>
+        <path class="a3" d="M0 40 L30 72 L60 40"></path>
+</svg>
+
+
+<div id="div_scinde2">
+
+<p style="margin-top: 2%; margin-left: 5%; color: #FFF; font-weight: bold; font-size: 2vw; z-index: 9999;"> Pourquoi choisir Inter Mutuelles Entreprises ?</p>
+
+
+<fieldset id="container_valeurs">
+    
+
+<fieldset id="para_1"><p style="color: #FFF; font-weight: bold; font-size: 1.5vw; text-align: center;margin-top: 3%;"> IME, une entreprise pas comme les autres</p></fieldset>
+
+<fieldset id="para_container_1">
+
+<p style="color: #000080;">Contrairement à une entreprise privée à but lucratif, <b>Inter Mutuelles Entreprises</b> ne rémunère ni actionnaire ni intermédiaire.</p>
+
+<p style="color: #000080;">Société d'assurance mutuelle, elle a été créée par et pour ses sociétaires. En adhérant à <b>Inter Mutuelles Entreprises</b>, on ne devient pas seulement assuré mais aussi assureur. Ainsi, les statuts de l'entreprise prévoient que chaque assuré participe à l'élection des délégués des sociétaires qui le représenteront aux Assemblées Générales selon le principe « un homme, une voix ». Ils transmettent à la Direction et au Conseil d'Administration les remarques et attentes des assurés.</p>
+
+<p style="color: #000080;">Bénévoles et indépendants, les délégués sont des sociétaires désireux de s'investir personnellement dans le fonctionnement et le développement de la mutuelle. Ils sont élus pour 3 ans et renouvelables par tiers chaque année.</p>
+
+
+</fieldset>
+
+<fieldset id="para_2"><p style="color: #FFF; font-weight: bold; font-size: 1.5vw; text-align: center;margin-top: 3%;"> Des valeurs fortes et marquées</p></fieldset>
+
+<fieldset id="para_container_2">
+    
+<p style="color: #000080;">Inter Mutuelles Entreprises développe son savoir-faire dans le respect des valeurs mutualistes qui l'ont toujours guidée. Elle est un acteur majeur de l'Économie Sociale.</p>
+
+<p style="color: #FF8C00;"><b>ENGAGEMENT</b></p>
+
+<p style="color: #000080;">Nous nous engageons auprès de chacun de nos sociétaires dans une relation basée sur la confiance, la sincérité et la transparence :</p>
+
+<li style="color: #000080;">nos contrats sont clairs et lisibles pour que chacun s'engage en connaissance de cause,</li>
+<li style="color: #000080;">nos assurances sont conçues pour que chacun bénéficie d'une couverture fiable,</li>
+<li style="color: #000080;">notre gamme de services est large pour faciliter la vie de chacun au quotidien,</li>
+<li style="color: #000080;">notre accompagnement est efficace, réactif et humain,</li>
+<li style="color: #000080;">nos indemnisations sont justes et objectives,</li>
+<li style="color: #000080;">nos prix sont calculés au plus près pour respecter l'équilibre technique.</li>
+
+<p style="color: #000080;">Nous mettons tout en œuvre pour vous rendre le meilleur service au quotidien. Si toutefois vous n'étiez pas satisfait de l'une de nos prestations, contactez-nous.</p>
+
+<p style="color: #FF8C00;"><b>SOLIDARITÉ</b></p>
+
+<p style="color: #000080;">Parce que la Matmut porte dans ses gènes la solidarité, elle a décidé depuis de nombreuses années de la mettre en action lorsque ses sociétaires se trouvent en grande difficulté. Autrefois incarnée par deux fonds distincts, elle se traduit depuis 2008 par un fonds unique « Solidarité Matmut ».</p>
+
+<p style="color: #000080;">Ces aides personnalisées sont destinées à des sociétaires en détresse financière à l'occasion de situations exceptionnelles.</p>
+
+<p style="color: #000080;">La Matmut souhaite par ailleurs contribuer à construire un monde et un avenir meilleurs en nouant différents partenariats/mécénats avec des entreprises de l'Économie Sociale et Solidaire notamment.</p>
+
+<p style="color: #FF8C00;"><b>PROXIMITÉ</b></p>
+
+<p style="color: #000080;">PROXIMITÉ PHYSIQUE</p>
+
+<p style="color: #000080;">Quel que soit le moyen choisi pour nous contacter, nos sociétaires bénéficient de la même qualité de service :</p>
+
+<li style="color: #000080;">nos Agences,</li>
+<li style="color: #000080;">nos Plates-formes Téléphoniques au 02 35 03 68 68,</li>
+<li style="color: #000080;">matmut.fr et ses Espaces Personnels,</li>
+<li style="color: #000080;">notre service réservé aux personnes sourdes ou malentendantes,</li>
+<li style="color: #000080;">nos services mobiles :</li>
+<li style="color: #000080; margin-left: 5%">application Ma Matmut,</li>
+<li style="color: #000080; margin-left: 5%">application Assistance Matmut,</li>
+<li style="color: #000080; margin-left: 5%">application E-déclaration,</li>
+
+<p style="color: #000080;">PROXIMITÉ RELATIONNELLE</p>
+
+<p style="color: #000080;">Nous sommes aux côtés de nos sociétaires au quotidien pour les conseiller, protéger leur famille et leurs biens, les aider à réaliser leurs projets mais aussi les accompagner en cas de coup dur.</p>
+
+<p style="color: #000080;">LES DÉLÉGUÉS DU CONSEIL D'ADMINISTRATION</p>
+
+<p style="color: #000080;">Comme l'indique leur nom, ils représentent le Conseil d'Administration dans chaque département. Chaque délégué du Conseil d'Administration se tient à la disposition des sociétaires afin d'échanger sur le fonctionnement de la mutuelle ou exprimer une critique positive ou négative sur une décision ou une pratique de la Matmut à son égard.</p>
+<br><br><br>
+<div id="page-5">
+</fieldset>
+
+</fieldset>
+
+</div>
+
+
+<svg class="arrow-4">
+        <path class="a1" d="M0 0 L30 32 L60 0"></path>
+        <path class="a2" d="M0 20 L30 52 L60 20"></path>
+        <path class="a3" d="M0 40 L30 72 L60 40"></path>
+</svg>
+
+
+<div id="page-5">
+<div id="div_scinde3">
+
+<p style="margin-top: 2%; margin-left: 5%; color: #FFF; font-weight: bold; font-size: 2vw; z-index: 9999;"> L'assurance copropriété, qu'est ce que c'est ?</p>
+
+<fieldset id="container_valeurs2">
+
+  <p style="color: #000080; margin-left: 2%">La copropriété est exposée à un certain nombre de risques qu’il est prudent de garantir. La loi impose au syndicat des copropriétaires de souscrire une assurance contre les risques de responsabilité civile dont il doit répondre. Comment est organisée une copropriété ? Comment la garantir ? Chaque copropriétaire doit-il s’assurer personnellement ?</p>
+
+<fieldset id="para_4"><p style="color: #FFF; font-weight: bold; font-size: 1.5vw; text-align: center;margin-top: 1.5%;">L'organsation de la copropriété</p></fieldset>
+
+<fieldset id="para_container_4">
+
+<p style="color: #FF8C00;"><b>Qu’est-ce qu’une copropriété ?</b></p>
+
+<p style="color: #000080;">Une copropriété est un ensemble immobilier dont la propriété est répartie entre plusieurs personnes. Le régime de la copropriété est organisé par la loi du 10 juillet 1965.</p>
+
+<p style="color: #000080;">Les ensembles immobiliers comprenant terrains, logements et installations communes ainsi que les maisons individuelles indépendantes construites sur un même terrain peuvent également être soumis au régime de la copropriété, si les copropriétaires n’ont pas choisi un autre système de gestion (association syndicale).</p>
+
+<p style="color: #FF8C00;"><b>Les parties communes et les parties privatives</b></p>
+
+<p style="color: #000080;">Les copropriétés sont divisées en parties qui sont :</p>
+
+<li style="color: #000080;">communes, lorsqu’elles sont la propriété de l’ensemble des copropriétaires et destinées à l’usage de tous : toiture, murs, escaliers, couloirs, planchers ;</li>
+<li style="color: #000080;">privatives, quand elles appartiennent à un seul copropriétaire et sont réservées à son usage exclusif.</li>
+
+<p style="color: #000080;">Le règlement de la copropriété détermine généralement ce qui est commun et ce qui est privatif.</p>
+
+<p style="color: #FF8C00;"><b>Les principes de fonctionnement</b></p>
+
+<p style="color: #000080;">Le règlement de copropriété définit les droits et obligations des copropriétaires ainsi que les règles de fonctionnement de la copropriété.</p>
+
+<p style="color: #000080;">L’organisation de la copropriété s’articule autour de différents organes.</p>
+
+<p style="color: #000080; text-decoration: underline;">Le syndicat des copropriétaires :</p>
+
+<p style="color: #000080;">Il est constitué par la collectivité des copropriétaires. C'est une personne juridique distincte de celles de ses membres, qui possède des droits et des obligations. Il administre les parties communes, assure la conservation et l'entretien de l'immeuble, et la défense des intérêts collectifs. Le syndicat peut donc, en tant que tel, être responsable de ses actions. Les syndicats de copropriété doivent obligatoirement assurer leur responsabilité civile.</p>
+
+<p style="color: #000080; text-decoration: underline;">Le conseil syndical :</p>
+
+<p style="color: #000080;">Il s’agit de l’organe représentatif du syndicat des copropriétaires auprès du syndic. Il est chargé notamment de veiller à la bonne exécution de la mission du syndic et de l’assister lors des prises de décisions.</p>
+
+<p style="color: #000080;">Les membres du conseil syndical sont responsables des fautes ou négligences commises dans l'exécution de leur mission (par exemple du fait d’un acte non conforme au règlement de copropriété). Pour garantir la responsabilité de chacun des membres du conseil syndical en cas de réclamation directe d’une victime ou de recours de la copropriété, une extension de garantie peut être souscrite en complément du contrat d’assurance de l’immeuble.</p>
+
+<p style="color: #000080; text-decoration: underline;">L’assemblée générale :</p>
+
+<p style="color: #000080;">L’assemblée générale est l’organe d’expression du syndicat des copropriétaires. Elle leur permet de prendre toute décision utile se rapportant à la gestion de l'immeuble : entretien, chauffage, aménagement, recouvrement des créances, choix du syndic, etc.</p>
+
+<p style="color: #000080;">Le syndicat se réunit en assemblée générale au moins une fois par an.</p>
+
+<p style="color: #000080; text-decoration: underline;">Le syndic :</p>
+
+<p style="color: #000080;">Le syndic, professionnel ou bénévole, est désigné par l’assemblée générale. Il reçoit mandat des copropriétaires de gérer la copropriété pour leur compte, suivant les instructions votées par l’assemblée générale. Les fonctions du syndic s’exercent sur différents postes : financier, entretien et travaux, administratif et juridique. A ce titre, il a notamment pour rôle de souscrire les contrats d’assurance concernant la copropriété.</p>
+
+<p style="color: #000080;">Les syndics professionnels sont soumis à une obligation d’assurance de responsabilité civile professionnelle.</p>
+
+</fieldset>
+
+
+<fieldset id="para_5"><p style="color: #FFF; font-weight: bold; font-size: 1.5vw; text-align: center;margin-top: 1.5%;">L'assurance de la copropriété</p></fieldset>
+
+<fieldset id="para_container_5">
+  
+<p style="color: #FF8C00;"><b>Les dommages à l’immeuble</b></p>
+
+<p style="color: #000080;">Les événements généralement couverts par le contrat d’assurance de la copropriété sont :</p>
+
+<li style="color: #000080;">L'incendie, la foudre, l’explosion, y compris les dommages provoqués par la fumée et les pompiers.</li>
+<li style="color: #000080;">Les dégâts des eaux : ruptures, débordements, fuites accidentelles de canalisations non souterraines ou d’appareils à effet d’eau, infiltrations à travers les toitures, gel des canalisations intérieures, débordements ou versements de récipients.</li>
+<li style="color: #000080;">La tempête, la grêle et la neige sur les toitures : assurée contre l’incendie, la copropriété bénéficie automatiquement d’une garantie contre la tempête.</li>
+<li style="color: #000080;">Les catastrophes naturelles (inondation, tremblement de terre, avalanche…) et actes de terrorisme. Tous les contrats d’assurance de biens couvrent obligatoirement les dommages matériels dus à ces événements.</li>
+<li style="color: #000080;">Les catastrophes technologiques : les dommages aux biens immobiliers à usage d’habitation sont obligatoirement indemnisés dès lors qu’un arrêté de catastrophe technologique est pris.</li>
+<li style="color: #000080;">Le vol : les détériorations immobilières causées par les cambrioleurs et, parfois, les conséquences du vol des clés confiées au gardien par un copropriétaire.</li>
+<li style="color: #000080;">Le bris de glaces : vitres, glaces des parties communes de l’immeuble, parois vitrées qui servent de séparation entre les balcons mitoyens… </li>
+
+<p style="color: #000080;">En complément des garanties incendie et dégâts des eaux, les assureurs accordent souvent :</p>
+
+<li style="color: #000080;">le paiement des honoraires de l’expert choisi par l’assuré (généralement à concurrence d’un pourcentage, indiqué dans le contrat, du montant des dommages) ;</li>
+<li style="color: #000080;">les dommages électriques causés aux appareils par une surtension ;</li>
+<li style="color: #000080;">les frais de déblai des décombres ;</li>
+<li style="color: #000080;">les frais de recherche de fuites d’eau.</li>
+
+<p style="color: #000080;">La couverture proposée par les assureurs est plus ou moins étendue selon les contrats. La plupart d’entre eux garantit uniquement les parties communes, d’autres incluent certaines parties privatives.</p>
+
+<p style="color: #FF8C00;"><b>La responsabilité civile de la copropriété</b></p>
+<p style="color: #000080;">La responsabilité civile de la copropriété, c'est-à-dire de l’ensemble des copropriétaires, se trouve engagée à l’égard des tiers et de chaque copropriétaire en cas de sinistre provoqué par :</p>
+
+<li style="color: #000080;">les bâtiments (chute d’une tuile sur un passant, glissade d’un locataire sur une marche d’escalier usée…) ; il est utile que le contrat mentionne l’existence d’un ascenseur ou d’installations extérieures (antenne, clôture, jardin) ;</li>
+<li style="color: #000080;">les personnes affectées au service de l’immeuble. </li>
+
+<p style="color: #FF8C00;"><b>L’assurance de protection juridique de la copropriété</b></p>
+
+<p style="color: #000080;">Elle couvre, à la suite des événements cités dans le contrat, les frais engagés par la copropriété pour récupérer le montant d’un préjudice subi du fait d’autrui. Elle garantit également la défense de la copropriété auprès des tribunaux, si un tiers met en cause sa responsabilité pénale ou civile en dehors des cas relevant de la garantie responsabilité civile/défense et recours. Elle ne joue pas contre un copropriétaire.</p>
+
+<p style="color: #000080;">Selon les contrats, une garantie de protection juridique peut être proposée en annexe. Un contrat spécifique peut aussi être souscrit.</p>
+
+<p style="color: #FF8C00;"><b>Les valeurs d’assurance</b></p>
+
+<p style="color: #000080; text-decoration: underline;">La valeur de reconstruction :</p>
+
+<p style="color: #000080;">Fréquemment, la valeur d’assurance est représentée par une surface (surface développée de l’immeuble) assurée déclarée et définie par le contrat. Sinon, il faut, au minimum, assurer la valeur réelle de l’immeuble, c’est-à-dire de son prix de reconstruction vétusté déduite. Cette valeur est exprimée en capital.</p>
+
+<p style="color: #000080;">La plupart des assurances d’immeubles sont indexées ; le syndic doit, périodiquement, vérifier le montant des garanties et, le cas échéant, le faire évoluer. Les copropriétaires peuvent juger insuffisant un remboursement limité à la valeur de reconstruction vétusté déduite.</p>
+
+<p style="color: #000080;">Ils peuvent alors souscrire des garanties complémentaires telles que « valeur à neuf » ou « pertes indirectes ».</p>
+
+<p style="color: #000080; text-decoration: underline;">La valeur à neuf :</p>
+
+<p style="color: #000080;">La valeur à neuf est la valeur de reconstruction vétusté déduite à laquelle on ajoute un pourcentage précisé dans le contrat (ne dépassant pas généralement 25 % de la valeur de reconstruction). L’immeuble doit être reconstruit au même endroit dans un délai de deux ans, sauf impossibilité.</p>
+
+<p style="color: #000080;">La garantie des pertes indirectes permet à la copropriété d’être indemnisée sur justificatifs des frais et pertes restant à sa charge à la suite d’un sinistre garanti.</p>
+
+</fieldset>
+
+<fieldset id="para_6"><p style="color: #FFF; font-weight: bold; font-size: 1.5vw; text-align: center;margin-top: 1.5%;">L'assurance du copropriétaire</p></fieldset>
+
+
+<fieldset id="para_container_6">
+
+<p style="color: #FF8C00;"><b>Les risques couverts par l’assurance multirisques habitation</b></p>
+
+<p style="color: #000080;">Selon que l’on est copropriétaire occupant ou non occupant, deux formules de contrat d’assurance multirisques habitation existent avec diverses garanties qui répondent aux besoins de chacun et respectent les obligations légales.
+
+<p style="color: #000080;">Ces contrats d’assurance couvrent principalement :
+
+<li style="color: #000080;">les dommages aux biens : bâtiments appartenant à l’assuré pour tous les copropriétaires occupants ou non occupants et leurs contenus (meubles et objets) pour les occupants ;</li>
+<li style="color: #000080;">la responsabilité civile vie privée pour tous les occupants (la responsabilité civile vie privée des copropriétaires non occupants étant généralement accordée sur le contrat d’assurance multirisques habitation du logement qu’ils occupent) ;</li>
+<li style="color: #000080;">la responsabilité civile de l’assuré en tant que propriétaire de l’habitation pour tous les copropriétaires occupants ou non occupants.</li>
+
+<p style="color: #000080;">En outre, le contrat multirisques habitation inclut généralement une assurance de protection juridique et des garanties d’assistance.
+
+<p style="color: #FF8C00;"><b>L’assurance du mobilier</b></p>
+
+<p style="color: #000080;">Les copropriétaires occupants sont principalement concernés par cette garantie qui couvre le mobilier.</p>
+
+<p style="color: #000080;">La plupart des contrats garantissent l’incendie, la foudre, les explosions, les tempêtes, les dégâts des eaux, le vol, le bris de glaces, les dommages aux appareils électriques. Les garanties catastrophes naturelles, catastrophes technologiques et actes de terrorisme sont automatiquement incluses.</p>
+
+<p style="color: #000080;">Pour assurer le mobilier, deux possibilités :</p>
+
+<li style="color: #000080;">déterminer soi-même le capital garanti ;</li>
+<li style="color: #000080;">souscrire une garantie forfaitaire : son montant est généralement fixé en fonction du nombre de pièces ou de la surface de l’appartement.</li>
+
+<p style="color: #000080;">Certaines assurances multirisques habitation de copropriétaires non occupants accordent parfois cette garantie également (détériorations mobilières et immobilières, mobilier mis à disposition des occupants, mobilier dans les parties communes…).</p>
+
+<p style="color: #FF8C00;"><b>L’assurance des responsabilités du copropriétaire</b></p>
+
+<p style="color: #000080; text-decoration: underline;">La responsabilité civile du copropriétaire occupant</p>
+<p style="color: #000080;">Le copropriétaire doit s’assurer pour garantir sa responsabilité personnelle :</p>
+
+<li style="color: #000080;">envers les voisins et les tiers ;</li>
+<li style="color: #000080;">envers la copropriété (mais si l’assurance collective de l’immeuble comporte une clause de renonciation à recours, aucune indemnité ne sera réclamée).</li>
+
+<p style="color: #000080; text-decoration: underline;">La responsabilité civile du copropriétaire non occupant</p>
+
+<p style="color: #000080;">Le copropriétaire non occupant doit s’assurer contre les risques pour lesquels sa responsabilité est susceptible d’être recherchée :</p>
+
+<li style="color: #000080;">envers ses locataires du fait du bâtiment loué, c'est-à-dire en cas de vice de construction ou de défaut d’entretien ;</li>
+<li style="color: #000080;">envers chacun de ses locataires du fait des agissements d’un autre colocataire causant des troubles de jouissance. Il s’agit ici des garanties recours des locataires et troubles de jouissance ;</li>
+<li style="color: #000080;">envers les voisins et les tiers ;</li>
+<li style="color: #000080;">envers la copropriété (mais si l’assurance collective de l’immeuble comporte une clause de renonciation à recours, aucune indemnité ne sera réclamée).</li>
+
+<p style="color: #000080; text-decoration: underline;">La responsabilité civile vie privée</p>
+
+<p style="color: #000080;">Elle peut être engagée en cas d’accident causé à un tiers dans le cadre de la vie privée par le copropriétaire ou son conjoint, leurs enfants et ceux qui leur sont confiés, les personnes à leur service, leurs animaux et ceux qu’ils gardent, et les choses qui leur appartiennent.</p>
+
+<p style="color: #000080;">La garantie responsabilité civile vie privée couvre tous ces risques. Dans la plupart des contrats, le montant de la garantie est illimité pour les dommages corporels et limité pour les dommages matériels.</p>
+
+<p style="color: #FF8C00;"><b>L’assurance de la responsabilité civile du syndicat des copropriétaires</b></p>
+
+<p style="color: #000080;">Le syndicat peut être déclaré responsable à l’égard des copropriétaires ou des tiers des dommages que ceux-ci peuvent subir sur leurs parties immobilières privatives ou sur leurs objets mobiliers à la suite d’un incendie, d’une explosion ou d’un dégât des eaux résultant d’un vice de construction des parties communes ou de leur défaut d’entretien.</p>
+
+<p style="color: #000080;">La loi oblige le syndicat de copropriétaires à s’assurer contre les risques de responsabilité civile dont il doit répondre.</p>
+
+<p style="color: #000080;">L’assurance multirisques de la copropriété garantit généralement la responsabilité civile du syndicat. Le syndic doit cependant le vérifier, car un défaut d’assurance du syndicat constitue une faute dans l’exécution de son mandat.</p>
+
+<p style="color: #FF8C00;"><b>L’assurance de la responsabilité civile du syndic</b></p>
+
+<p style="color: #000080;">Seuls les syndics professionnels, par opposition aux syndics bénévoles, sont soumis à l’obligation d’assurance. Mais le syndicat a le droit de subordonner le choix du syndic bénévole à la justification d’une assurance de responsabilité civile professionnelle.</p>
+
+<p style="color: #000080;">La responsabilité civile des syndics bénévoles est fréquemment couverte en extension des contrats souscrits par les syndicats de copropriétaires.</p>
+
+
+</fieldset>
+
+
+</fieldset>
+
+
+</fieldset>
+
+</div>
+
+
+<input type="button" id="retour_top" class="js-scrollTo" href="#page-6" value="Retour en haut de la page" style="margin-top: 2%;">
+
+<div>
+<a href="https://www.facebook.com/MatmutAssurances/" target="_blank"><img src="http://www.appui86.fr/wp-content/uploads/2016/11/facebook-logo-fr.gif" width="220" height="85" style="margin-left: 66%; margin-top: 0%;"></a>
+</div>
+<div>
+<a href="https://twitter.com/groupematmut?lang=en" target="_blank"><img src="http://www.meconv.be/files/uploads/Home/twitter%20contact%20fr.jpg" width="230px" height="70" style="margin-top: -7%; margin-left: 83%"></a>
+</div>
+
+
+
+
+
+
+
+
+</body>
+</html>
